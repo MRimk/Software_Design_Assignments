@@ -2,12 +2,21 @@ package softwaredesign;
 
 import com.google.gson.Gson;
 
+import java.io.*;
+import java.util.Scanner;
+
 public class Main {
     public static void main (String[] args){
         Gson gson = new Gson();
 
-        User user = gson.fromJson("src/main/resources/user-data", User.class);
-
+        User user;
+        try (Reader readerJSON = new FileReader("src/main/resources/user_data")) {
+            user = gson.fromJson(readerJSON, User.class);
+            user.pretty_print();
+        } catch (IOException e) {
+            user = fillUserInformation();
+            saveUserData(gson.toJson(user));
+        }
     }
 
     public static User fillUserInformation(){
