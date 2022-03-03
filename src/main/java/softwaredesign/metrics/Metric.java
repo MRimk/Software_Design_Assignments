@@ -2,20 +2,21 @@ package softwaredesign.metrics;
 
 
 import softwaredesign.Chart;
+import org.alternativevision.gpx.beans.GPX;
 
 import java.util.ArrayList;
 
 public interface Metric {
-    static String display(){
+    static String display(GPX gpx){
         return "";
     }
-    private static ArrayList<Double> calculateDataPoints() {
-        return new ArrayList<Double>();
+    static ArrayList<Double> calculateDataPoints(GPX gpx) {
+        return new ArrayList<>();
     }
-    private static Double calculateMetricTotal() {
+    static Double calculateMetricTotal(GPX gpx) {
         return 0.0;
     }
-    static Chart chartMetric() {
+    static Chart chartMetric(GPX gpx) {
         return new Chart();
     }
 }
