@@ -9,10 +9,13 @@ sourceCompatibility = 11
 
 repositories {
     mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 dependencies {
     testImplementation group: 'junit', name: 'junit', version: '4.13.1'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
-//    implementation group: 'me.himanshusoni.gpxparser', name: 'gpx-parser', version: '1.13'
+    implementation name: 'GPXParser_20200512'
 }
