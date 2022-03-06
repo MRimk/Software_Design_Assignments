@@ -23,9 +23,10 @@ public class Time extends Metric {
         String time = "Elapsed Time: ";
         Double elapsedTime = calculateMetricTotal(gpx);
         int hours = elapsedTime.intValue();
-        Double minutesInDecimal = elapsedTime.doubleValue() * 60;
-        double seconds = minutesInDecimal.doubleValue() * 60;
-        int minutes = minutesInDecimal.intValue();
+        double minutesInDecimal = (elapsedTime - hours) * 60;
+        int minutes = (int)minutesInDecimal;
+        double seconds = (minutesInDecimal - minutes) * 60;
+
         time += hours + ":" + minutes + ":" +  BigDecimal.valueOf(seconds).setScale(2, RoundingMode.HALF_DOWN);
 
         return time;

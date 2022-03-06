@@ -44,6 +44,9 @@ public class Main {
             case "RUNNING":
                 chosenSport = SportTypes.RUNNING;
                 break;
+            case "SWIMMING":
+                chosenSport = SportTypes.SWIMMING;
+                break;
             default:
                 break;
         }
