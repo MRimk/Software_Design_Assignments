@@ -1,18 +1,21 @@
 package softwaredesign.metrics;
 
-import org.alternativevision.gpx.beans.Waypoint;
 import org.apache.commons.math3.util.Precision;
 import softwaredesign.Chart;
-import org.alternativevision.gpx.beans.GPX;
+import io.jenetics.jpx.*;
 
+
+import java.time.ZonedDateTime;
 import java.util.*;
 
 
-public class Time implements Metric {
-    private Time(){}
-
-    public static String display(GPX gpx){
-        String time = "";
+public class Time extends Metric {
+    public Time(){
+        //do nothing because object is purely a calculator
+    }
+    @Override
+    public String display(GPX gpx){
+        String time = "Elapsed Time: ";
         Double elapsedTime = calculateMetricTotal(gpx);
         int hours = elapsedTime.intValue();
         Double minutesInDecimal = elapsedTime.doubleValue() * 60;
@@ -22,27 +25,31 @@ public class Time implements Metric {
 
         return time;
     }
-
-    static ArrayList<Double> calculateDataPoints(GPX gpx) {
-        HashSet<Waypoint> waypoints =  gpx.getWaypoints();
-        Iterator<Waypoint> iter = waypoints.iterator();
+    @Override
+    public ArrayList<Double> calculateDataPoints(GPX gpx) {
         ArrayList<Double> timePoints = new ArrayList<>();
-        while(iter.hasNext()){
-            timePoints.add(convertMillisecondsToHours(iter.next().getTime().getTime()));
+        Track track = gpx.getTracks().get(0);
+        TrackSegment segment = track.getSegments().get(0);
+        List<WayPoint> waypoints = segment.getPoints();
+        Optional<ZonedDateTime> time = waypoints.get(0).getTime();
+        for(WayPoint point : waypoints){
+            time = point.getTime();
+            timePoints.add(time.get().getHour() + time.get().getMinute() / 60.0 + time.get().getSecond() / 3600.0);
         }
         return timePoints;
     }
-    static Double calculateMetricTotal(GPX gpx) {
+    @Override
+    public Double calculateMetricTotal(GPX gpx) {
         ArrayList<Double> timePoints = calculateDataPoints(gpx);
         return timePoints.get(timePoints.size() - 1) - timePoints.get(0);
     }
 
-    private static Double convertMillisecondsToHours(Long elapsedTime) {
-
+    private Double convertMillisecondsToHours(Long elapsedTime) {
         return elapsedTime / 1000.0 / 60.0 / 60.0 ;
     }
 
-    static Chart chartMetric(GPX gpx) {
+    @Override
+    public Chart chartMetric(GPX gpx) {
         return new Chart();
     }
 }

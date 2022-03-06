@@ -1,12 +1,17 @@
 package softwaredesign;
 
 import com.google.gson.Gson;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
+import java.util.Arrays;
+import java.util.EnumSet;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-    public static void main (String[] args){
+    public static void main (String[] args) throws IOException, ParserConfigurationException, SAXException {
         Gson gson = new Gson();
 
         User user;
@@ -17,6 +22,43 @@ public class Main {
             user = fillUserInformation();
             saveUserData(gson.toJson(user));
         }
+
+        Activity activity = enterNewActivity(user);
+        activity.displayMetrics();
+    }
+
+    private static Activity enterNewActivity(User user) throws IOException, ParserConfigurationException, SAXException {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Activity gpx location:");
+        String location = scanner.nextLine();
+
+        System.out.println("Choose the sport type out of:");
+        System.out.println(getAllSports());
+
+        String sport = scanner.nextLine();
+
+        SportTypes chosenSport = SportTypes.CYCLING;;
+        switch (sport){
+            case "CYCLING":
+                chosenSport = SportTypes.CYCLING;
+                break;
+            case "RUNNING":
+                chosenSport = SportTypes.RUNNING;
+                break;
+            default:
+                break;
+        }
+        return new Activity(location, chosenSport, user);
+    }
+
+    private static String getAllSports() {
+        List<SportTypes> sportsList = Arrays.asList(SportTypes.values());
+        StringBuilder allSports = new StringBuilder();
+        for(SportTypes sport : sportsList){
+            allSports.append(sport.toString());
+            allSports.append("\n");
+        }
+        return allSports.toString();
     }
 
     public static User fillUserInformation(){
