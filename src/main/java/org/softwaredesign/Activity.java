@@ -23,6 +23,7 @@ public class Activity {
     public String displayMetrics(){
         Metric[] metricsList = SportToMetricsHelper.getSportMetrics(sport);
         StringBuilder metricsText = new StringBuilder();
+        metricsText.insert(0, "");
         for(Metric metric : metricsList){
             System.out.println(metric.display(gpx));
             metricsText.append(metric.display(gpx));
