@@ -1,12 +1,17 @@
-package softwaredesign.metrics;
+package org.softwaredesign.metrics;
 
-import org.apache.commons.math3.util.Precision;
-import softwaredesign.Chart;
-import io.jenetics.jpx.*;
+import io.jenetics.jpx.GPX;
+import io.jenetics.jpx.Track;
+import io.jenetics.jpx.TrackSegment;
+import io.jenetics.jpx.WayPoint;
+import org.softwaredesign.Chart;
 
-
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.time.ZonedDateTime;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
 
 
 public class Time extends Metric {
@@ -21,7 +26,7 @@ public class Time extends Metric {
         Double minutesInDecimal = elapsedTime.doubleValue() * 60;
         double seconds = minutesInDecimal.doubleValue() * 60;
         int minutes = minutesInDecimal.intValue();
-        time += hours + ":" + minutes + ":" + Precision.round(seconds, 2);
+        time += hours + ":" + minutes + ":" +  BigDecimal.valueOf(seconds).setScale(2, RoundingMode.HALF_DOWN);
 
         return time;
     }

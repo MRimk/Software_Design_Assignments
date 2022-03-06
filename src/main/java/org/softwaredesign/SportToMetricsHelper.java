@@ -1,12 +1,11 @@
-package softwaredesign;
+package org.softwaredesign;
 
-import softwaredesign.metrics.Distance;
-import softwaredesign.metrics.Metric;
-import softwaredesign.metrics.Speed;
-import softwaredesign.metrics.Time;
+import org.softwaredesign.metrics.Distance;
+import org.softwaredesign.metrics.Metric;
+import org.softwaredesign.metrics.Speed;
+import org.softwaredesign.metrics.Time;
 
 import java.util.Map;
-import java.util.Vector;
 
 import static java.util.Map.entry;
 

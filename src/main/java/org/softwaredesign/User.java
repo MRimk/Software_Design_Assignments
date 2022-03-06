@@ -1,4 +1,4 @@
-package softwaredesign;
+package org.softwaredesign;
 
 public class User {
     String name;

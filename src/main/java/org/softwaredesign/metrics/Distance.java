@@ -1,11 +1,10 @@
-package softwaredesign.metrics;
+package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.*;
-import org.apache.commons.math3.util.Precision;
-import softwaredesign.Chart;
+import org.softwaredesign.Chart;
 
-
-
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,7 +15,7 @@ public class Distance extends Metric{
 
     @Override
     public String display(GPX gpx){
-        return "Total Distance: " + Precision.round(calculateMetricTotal(gpx), 2) + " km";
+        return "Total Distance: " + BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " km";
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {

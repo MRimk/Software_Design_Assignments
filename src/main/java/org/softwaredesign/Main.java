@@ -1,4 +1,4 @@
-package softwaredesign;
+package org.softwaredesign;
 
 import com.google.gson.Gson;
 import org.xml.sax.SAXException;
@@ -6,7 +6,6 @@ import org.xml.sax.SAXException;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.*;
 import java.util.Arrays;
-import java.util.EnumSet;
 import java.util.List;
 import java.util.Scanner;
 

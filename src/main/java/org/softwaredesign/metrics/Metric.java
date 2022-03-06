@@ -1,8 +1,8 @@
-package softwaredesign.metrics;
+package org.softwaredesign.metrics;
 
 
-import softwaredesign.Chart;
-import io.jenetics.jpx.*;
+import io.jenetics.jpx.GPX;
+import org.softwaredesign.Chart;
 
 import java.util.ArrayList;
 

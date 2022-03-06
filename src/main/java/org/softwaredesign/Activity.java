@@ -1,16 +1,10 @@
-package softwaredesign;
-//import org.alternativevision.gpx.GPXParser;
-//import org.alternativevision.gpx.beans.GPX;
-//import tomc.gpx.*;
-
-import io.jenetics.jpx.*;
+package org.softwaredesign;
 
 import io.jenetics.jpx.GPX;
+import org.softwaredesign.metrics.Metric;
 import org.xml.sax.SAXException;
-import softwaredesign.metrics.Metric;
 
 import javax.xml.parsers.ParserConfigurationException;
-
 import java.io.IOException;
 
 

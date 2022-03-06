@@ -1,9 +1,10 @@
-package softwaredesign.metrics;
+package org.softwaredesign.metrics;
 
-import io.jenetics.jpx.*;
-import org.apache.commons.math3.util.Precision;
-import softwaredesign.Chart;
+import io.jenetics.jpx.GPX;
+import org.softwaredesign.Chart;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Speed extends Metric{
@@ -13,7 +14,7 @@ public class Speed extends Metric{
 
     @Override
     public String display(GPX gpx){
-        return "Average Speed: " + Precision.round(calculateMetricTotal(gpx), 2) + " km/h";
+        return "Average Speed: " + BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " km/h";
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
