@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public abstract class Metric {
     public abstract String display(GPX gpx);
-    abstract public ArrayList<Double> calculateDataPoints(GPX gpx);
-    abstract public Double calculateMetricTotal(GPX gpx);
-    abstract public Chart chartMetric(GPX gpx);
+    public abstract ArrayList<Double> calculateDataPoints(GPX gpx);
+    public abstract Double calculateMetricTotal(GPX gpx);
+    public abstract Chart chartMetric(GPX gpx);
 }

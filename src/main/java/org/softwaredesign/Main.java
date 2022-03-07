@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
+
     public static void main (String[] args) throws IOException, ParserConfigurationException, SAXException {
         Gson gson = new Gson();
 
@@ -32,17 +33,17 @@ public class Main {
         String location = scanner.nextLine();
 
         System.out.println("Choose the sport type out of:");
-        System.out.println(getAllSports());
+        System.out.print(getAllSports());
 
         String sport = scanner.nextLine();
 
         SportTypes chosenSport = SportTypes.CYCLING;;
         switch (sport){
-            case "CYCLING":
-                chosenSport = SportTypes.CYCLING;
-                break;
             case "RUNNING":
                 chosenSport = SportTypes.RUNNING;
+                break;
+            case "SWIMMING":
+                chosenSport = SportTypes.SWIMMING;
                 break;
             default:
                 break;
