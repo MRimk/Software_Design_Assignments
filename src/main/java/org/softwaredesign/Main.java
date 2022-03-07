@@ -18,7 +18,7 @@ public class Main {
             user = gson.fromJson(readerJSON, User.class);
             user.pretty_print();
         } catch (IOException e) {
-            user = fillUserInformation();
+            user = storeUserData();
             saveUserData(gson.toJson(user));
         }
 
@@ -60,7 +60,7 @@ public class Main {
         return allSports.toString();
     }
 
-    public static User fillUserInformation(){
+    public static User storeUserData(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter First Name ");
         String name = scanner.nextLine();
