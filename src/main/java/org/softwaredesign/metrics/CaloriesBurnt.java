@@ -25,10 +25,9 @@ public class CaloriesBurnt extends Metric{
     public Double calculateMetricTotal(GPX gpx) {
         Time timeCalculator = new Time();
         double totalTimeInMinutes = timeCalculator.calculateMetricTotal(gpx) * 60;
-        double MET = 6.5;               //TODO: we could do something similar to this table https://metscalculator.com/
-        double user_weight = 90.0;             //TODO: figure out how to pass user data
-        double caloriesBurnt = totalTimeInMinutes * MET * 3.5 * user_weight / 200;
-        return caloriesBurnt;
+        double met = 6.5;                       //TODO: we could do something similar to this table https://metscalculator.com/
+        double userWeight = 90.0;               //TODO: figure out how to pass user data
+        return totalTimeInMinutes * met * 3.5 * userWeight / 200;
     }
 
     @Override

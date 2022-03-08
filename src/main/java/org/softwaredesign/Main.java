@@ -25,6 +25,7 @@ public class Main {
 
         Activity activity = enterNewActivity(user);
         activity.displayMetrics();
+        MapHelper.displayMap(activity.getCoordinates());
     }
 
     private static Activity enterNewActivity(User user) throws IOException, ParserConfigurationException, SAXException {
