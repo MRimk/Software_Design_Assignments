@@ -14,11 +14,9 @@ import java.util.List;
 public class Activity {
     private GPX gpx;
     private SportTypes sport;
-    private final User user;
 
-    public Activity(String gpxPath, SportTypes sport, User user)
+    public Activity(String gpxPath, SportTypes sport)
             throws IOException, ParserConfigurationException, SAXException {
-        this.user = user;
         this.sport = sport;
         gpx = GPX.read(gpxPath);
     }

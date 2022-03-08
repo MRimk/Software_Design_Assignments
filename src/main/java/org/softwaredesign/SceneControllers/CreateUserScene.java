@@ -34,7 +34,7 @@ public class CreateUserScene {
     @FXML
     private Label generalError;
 
-    public void storeUserData() throws IOException {
+    public void initUser() throws IOException {
         Gson gson = new Gson();
 
         if (checkDataValidity()) {
@@ -46,7 +46,7 @@ public class CreateUserScene {
                     StringToGenderHelper.getGender(gender.getText()));
 
             saveUserData(gson.toJson(GUI.user));
-            GUI.switchScene("Dashboard.fxml");
+            GUI.switchScene("MainMenu.fxml");
         }
     }
 
@@ -74,8 +74,8 @@ public class CreateUserScene {
             {
                 wrongAge.setText("");
             }
-            if (parsedWeight < 40 || parsedWeight > 200) {
-                wrongWeight.setText("Range 40-200");
+            if (parsedWeight < 35 || parsedWeight > 250) {
+                wrongWeight.setText("Range 40-250");
                 valid = false;
             }
             else

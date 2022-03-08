@@ -63,7 +63,7 @@
                   <Font name="JetBrains Mono Light" size="12.0" />
                </font>
             </Label>
-            <Button fx:id="button" contentDisplay="CENTER" mnemonicParsing="false" onAction="#storeUserData" text="Submit" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
+            <Button fx:id="button" contentDisplay="CENTER" mnemonicParsing="false" onAction="#initUser" text="Submit" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="6">
                <font>
                   <Font name="Segoe UI Black" size="12.0" />
                </font>
@@ -87,7 +87,7 @@
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="359.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../imgs/BEAM-logos_black.png" />
+            <Image url="@imgs/BEAM-logos_black.png" />
          </image></ImageView>
    </children>
 </AnchorPane>

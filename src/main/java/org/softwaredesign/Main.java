@@ -38,7 +38,7 @@ public class Main {
 
         String sport = scanner.nextLine();
 
-        SportTypes chosenSport = SportTypes.CYCLING;;
+        SportTypes chosenSport = SportTypes.CYCLING;
         switch (sport){
             case "RUNNING":
                 chosenSport = SportTypes.RUNNING;
@@ -49,7 +49,7 @@ public class Main {
             default:
                 break;
         }
-        return new Activity(location, chosenSport, user);
+        return new Activity(location, chosenSport);
     }
 
     private static String getAllSports() {
