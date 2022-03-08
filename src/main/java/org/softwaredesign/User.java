@@ -22,5 +22,4 @@ public class User {
         System.out.println("Height: " + height);
         System.out.println("Gender: " + gender);
     }
-
 }

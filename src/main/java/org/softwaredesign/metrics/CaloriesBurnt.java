@@ -2,6 +2,7 @@ package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
 import org.softwaredesign.Chart;
+import org.softwaredesign.GUI;
 
 import java.util.ArrayList;
 
