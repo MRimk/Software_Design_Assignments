@@ -21,15 +21,15 @@ public class Cadence extends Metric{
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
         ArrayList<Double> cadencePoints = new ArrayList<>();
-        Track track = gpx.getTracks().get(0);
-        TrackSegment segment = track.getSegments().get(0);
-        List<WayPoint> waypoints = segment.getPoints();
+        List<WayPoint> waypoints = getWaypoints(gpx);
 
         for(WayPoint point :waypoints){
             point.getExtensions().ifPresent( extensions ->
                     cadencePoints.add(Double.parseDouble(extensions.getElementsByTagName("ns3:cad").item(0).getTextContent()))
             );
         }
+
+
         return cadencePoints;
     }
     @Override

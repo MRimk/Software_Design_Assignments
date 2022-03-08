@@ -20,9 +20,7 @@ public class Elevation extends Metric{
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
         ArrayList<Double> elevationPoints = new ArrayList<>();
-        Track track = gpx.getTracks().get(0);
-        TrackSegment segment = track.getSegments().get(0);
-        List<WayPoint> waypoints = segment.getPoints();
+        List<WayPoint> waypoints = getWaypoints(gpx);
         WayPoint previousPoint = waypoints.get(0);
         double elevGain;
         for(WayPoint point : waypoints){

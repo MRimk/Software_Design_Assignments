@@ -20,9 +20,7 @@ public class Distance extends Metric{
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
         ArrayList<Double> distancePoints = new ArrayList<>();
-        Track track = gpx.getTracks().get(0);
-        TrackSegment segment = track.getSegments().get(0);
-        List<WayPoint> waypoints = segment.getPoints();
+        List<WayPoint> waypoints = getWaypoints(gpx);
         WayPoint previousPoint = waypoints.get(0);
         for(WayPoint point :waypoints){
             distancePoints.add(previousPoint.distance(point).to(Length.Unit.KILOMETER));

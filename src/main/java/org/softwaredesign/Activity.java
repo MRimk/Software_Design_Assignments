@@ -1,11 +1,14 @@
 package org.softwaredesign;
 
 import io.jenetics.jpx.GPX;
+import io.jenetics.jpx.WayPoint;
 import org.softwaredesign.metrics.Metric;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Activity {
@@ -30,5 +33,17 @@ public class Activity {
             metricsText.append("\n");
         }
         return metricsText.toString();
+    }
+
+    public List<List<Double>> getCoordinates(){
+        List<WayPoint> waypoints = SportToMetricsHelper.getSportMetrics(sport)[0].getWaypoints(gpx);
+        List<List<Double>> coords = new ArrayList<List<Double>>();
+        List<Double> coordinate = new ArrayList<>();
+        for(WayPoint point : waypoints){
+            coordinate.add(point.getLatitude().doubleValue());
+            coordinate.add(point.getLongitude().doubleValue());
+            coords.add(coordinate);
+        }
+        return coords;
     }
 }
