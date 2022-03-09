@@ -22,4 +22,8 @@ public class User {
         System.out.println("Height: " + height);
         System.out.println("Gender: " + gender);
     }
+
+    public Double getWeight(){
+        return weight;
+    }
 }

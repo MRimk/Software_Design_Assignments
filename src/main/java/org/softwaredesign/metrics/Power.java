@@ -2,6 +2,7 @@ package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
 import org.softwaredesign.Chart;
+import org.softwaredesign.GUI;
 import org.softwaredesign.User;
 
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ public class Power extends Metric{
     private static final double DRIVETRAIN_LOSS = 0.09;
     private static final double GRAVITATIONAL_FORCE_CONSTANT  = 9.8067;
     private static final double GRADE = 1.0;
-    private static final double BICYCLE_WEIGHT  = 95.0; //TODO: figure out how to pass user data, since it is bike + person weight
+    private static final double BICYCLE_WEIGHT  = 15.0; //TODO: figure out how to pass user data, since it is bike + person weight
     private static final double ROLLING_RESISTANCE_COEFFICIENT  = 0.0219;
     private static final double DRAG_COEFFICIENT  = 0.4; // taken from https://bicycles.stackexchange.com/questions/44092/what-is-the-average-cda-to-weight-relationship-of-a-professional-road-cyclist
 
@@ -46,12 +47,11 @@ public class Power extends Metric{
     }
 
     private double fRolling() {
-
-        return GRAVITATIONAL_FORCE_CONSTANT * Math.cos(Math.atan(GRADE/100)) * BICYCLE_WEIGHT * ROLLING_RESISTANCE_COEFFICIENT;
+        return GRAVITATIONAL_FORCE_CONSTANT * Math.cos(Math.atan(GRADE/100)) * (BICYCLE_WEIGHT + GUI.user.getWeight()) * ROLLING_RESISTANCE_COEFFICIENT;
     }
 
     private double fGravity() {
-        return GRAVITATIONAL_FORCE_CONSTANT * Math.sin(Math.atan(GRADE/100)) * BICYCLE_WEIGHT;
+        return GRAVITATIONAL_FORCE_CONSTANT * Math.sin(Math.atan(GRADE/100)) * (BICYCLE_WEIGHT + GUI.user.getWeight());
     }
 
     @Override

@@ -20,7 +20,7 @@ public class Speed extends Metric{
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
         Time timeCalculator = new Time();
         Distance distanceCalculator = new Distance();
-        ArrayList<Double> timePoints = timeToGaps(timeCalculator.calculateDataPoints(gpx));
+        ArrayList<Double> timePoints = timeToIntervals(timeCalculator.calculateDataPoints(gpx));
 
         ArrayList<Double> distancePoints = distanceCalculator.calculateDataPoints(gpx);
         ArrayList<Double> speedPoints = new ArrayList<>();
@@ -30,7 +30,7 @@ public class Speed extends Metric{
         return speedPoints;
     }
 
-    private ArrayList<Double> timeToGaps(ArrayList<Double> time) {
+    private ArrayList<Double> timeToIntervals(ArrayList<Double> time) {
         ArrayList<Double> timeGaps = new ArrayList<>();
         Double previousTime = time.get(0);
         for(Double timePoint : time){
