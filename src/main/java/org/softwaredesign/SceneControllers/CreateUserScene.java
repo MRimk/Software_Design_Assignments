@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.softwaredesign.GUI;
-import org.softwaredesign.StringToGenderHelper;
+import org.softwaredesign.Helpers.StringToGenderHelper;
 import org.softwaredesign.User;
 
 import java.io.File;

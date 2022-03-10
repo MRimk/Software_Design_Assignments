@@ -2,6 +2,7 @@ package org.softwaredesign;
 
 import io.jenetics.jpx.GPX;
 import io.jenetics.jpx.WayPoint;
+import org.softwaredesign.Helpers.SportToMetricsHelper;
 import org.softwaredesign.metrics.Metric;
 
 import java.io.IOException;

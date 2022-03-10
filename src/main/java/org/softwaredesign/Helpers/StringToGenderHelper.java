@@ -1,4 +1,6 @@
-package org.softwaredesign;
+package org.softwaredesign.Helpers;
+
+import org.softwaredesign.Gender;
 
 import java.util.Map;
 import static java.util.Map.entry;

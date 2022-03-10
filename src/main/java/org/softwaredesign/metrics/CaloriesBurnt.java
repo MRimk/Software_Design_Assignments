@@ -10,7 +10,6 @@ public class CaloriesBurnt extends Metric{
     public CaloriesBurnt(){
         //do nothing because object is purely a calculator
     }
-    public boolean needsUserData = true;
 
     @Override
     public String display(GPX gpx){

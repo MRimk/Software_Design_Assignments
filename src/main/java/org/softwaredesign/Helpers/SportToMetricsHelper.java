@@ -1,5 +1,6 @@
-package org.softwaredesign;
+package org.softwaredesign.Helpers;
 
+import org.softwaredesign.SportTypes;
 import org.softwaredesign.metrics.*;
 
 import java.util.Map;

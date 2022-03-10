@@ -5,6 +5,7 @@ module Software_Design_Assignments {
     requires com.google.gson;
     requires java.xml;
     requires io.jenetics.jpx;
+    requires com.dlsc.gmapsfx;
 
     opens org.softwaredesign to javafx.fxml, com.google.gson;
     exports org.softwaredesign;
@@ -12,4 +13,6 @@ module Software_Design_Assignments {
     opens org.softwaredesign.metrics to com.google.gson, javafx.fxml;
     exports org.softwaredesign.SceneControllers;
     opens org.softwaredesign.SceneControllers to com.google.gson, javafx.fxml;
+    exports org.softwaredesign.Helpers;
+    opens org.softwaredesign.Helpers to com.google.gson, javafx.fxml;
 }

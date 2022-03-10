@@ -1,4 +1,6 @@
-package org.softwaredesign;
+package org.softwaredesign.Helpers;
+
+import org.softwaredesign.SportTypes;
 
 import java.util.Map;
 
