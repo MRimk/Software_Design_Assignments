@@ -108,7 +108,7 @@ public class CreateUserScene {
         return valid;
     }
 
-    public static void saveUserData(String compiledJSON) {
+    private static void saveUserData(String compiledJSON) {
         try {
             File myObj = new File("src/main/resources/user_data");
             if (!myObj.createNewFile()) {

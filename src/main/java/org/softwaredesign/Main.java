@@ -10,14 +10,13 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main {
-
     public static void main (String[] args) throws IOException, ParserConfigurationException, SAXException {
         Gson gson = new Gson();
 
         User user;
         try (Reader readerJSON = new FileReader("src/main/resources/user_data")) {
             user = gson.fromJson(readerJSON, User.class);
-            user.pretty_print();
+            user.prettyPrint();
         } catch (IOException e) {
             user = storeUserData();
             saveUserData(gson.toJson(user));
@@ -77,7 +76,7 @@ public class Main {
         Integer height = scanner.nextInt();
 
         User user = new User(name, age, weight, height, Gender.MALE);
-        user.pretty_print();
+        user.prettyPrint();
 
         return user;
     }

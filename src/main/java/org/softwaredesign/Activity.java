@@ -3,20 +3,18 @@ package org.softwaredesign;
 import io.jenetics.jpx.GPX;
 import io.jenetics.jpx.WayPoint;
 import org.softwaredesign.metrics.Metric;
-import org.xml.sax.SAXException;
 
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 
 public class Activity {
-    private GPX gpx;
-    private SportTypes sport;
+    private final GPX gpx;
+    private final SportTypes sport;
 
     public Activity(String gpxPath, SportTypes sport)
-            throws IOException, ParserConfigurationException, SAXException {
+            throws IOException {
         this.sport = sport;
         gpx = GPX.read(gpxPath);
     }

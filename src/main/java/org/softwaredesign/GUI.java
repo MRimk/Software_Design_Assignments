@@ -33,9 +33,8 @@ public class GUI extends Application {
 
     public static void switchScene(String fxml) throws IOException {
         Parent pane = loadScene(fxml);
-        stage.getScene().setRoot(pane);
+        stage.setScene(new Scene(pane));
     }
-
 
     private static Parent loadScene(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(GUI.class.getResource(fxml)));

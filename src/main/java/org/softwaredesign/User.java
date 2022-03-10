@@ -15,7 +15,7 @@ public class User {
         this.gender = gender;
     }
 
-    public void pretty_print() {
+    public void prettyPrint() {
         System.out.println("Name: " + name);
         System.out.println("Age: " + age);
         System.out.println("Weight: " + weight);

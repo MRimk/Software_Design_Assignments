@@ -29,11 +29,11 @@
       </Button>
       <MenuButton layoutX="243.0" layoutY="188.0" mnemonicParsing="false" prefHeight="1.0" prefWidth="122.0" text="Input Activity">
         <items>
-          <MenuItem fx:id="Running" mnemonicParsing="false" onAction="#runningInput" text="Running" />
+          <MenuItem fx:id="running" mnemonicParsing="false" onAction="#sportInput" text="Running" />
             <SeparatorMenuItem mnemonicParsing="false" />
-          <MenuItem fx:id="Swimming" mnemonicParsing="false" onAction="#swimmingInput" text="Swimming" />
+          <MenuItem fx:id="swimming" mnemonicParsing="false" onAction="#sportInput" text="Swimming" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem fx:id="Cycling" mnemonicParsing="false" onAction="#cyclingInput" text="Cycling" />
+            <MenuItem fx:id="cycling" mnemonicParsing="false" onAction="#sportInput" text="Cycling" />
         </items>
          <font>
             <Font name="Segoe UI Black" size="12.0" />

@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.softwaredesign.SceneControllers.VisualizeActivityScene">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.softwaredesign.SceneControllers.VisualizeActivityScene">
    <children>
-      <Label layoutX="107.0" layoutY="183.0" text="ABHI FEEDS ME CHARTS AND MAPS">
+      <Label layoutX="207.0" layoutY="283.0" text="ABHI FEEDS ME CHARTS AND MAPS">
          <font>
             <Font size="24.0" />
          </font></Label>

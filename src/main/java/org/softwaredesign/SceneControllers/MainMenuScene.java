@@ -1,37 +1,36 @@
 package org.softwaredesign.SceneControllers;
 
+import javafx.event.ActionEvent;
+import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import org.softwaredesign.Activity;
 import org.softwaredesign.GUI;
 import org.softwaredesign.SportTypes;
-import org.xml.sax.SAXException;
+import org.softwaredesign.StringToSportHelper;
 
-import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 
 public class MainMenuScene {
 
-    private void initActivity(SportTypes sport) throws IOException, ParserConfigurationException, SAXException {
-        FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilter =
-                new FileChooser.ExtensionFilter("GPX files (*.gpx)", "*.gpx");
-        fileChooser.getExtensionFilters().add(extFilter);
-        String GPXPath = fileChooser.showOpenDialog(GUI.stage).getAbsolutePath();
+    private void initActivity(SportTypes sport) throws IOException {
+        String GPXPath = getPath();
 
         GUI.activity = new Activity(GPXPath, sport);
 
         GUI.switchScene("VisualizeActivity.fxml");
     }
 
-    public void runningInput() throws IOException, ParserConfigurationException, SAXException {
-        initActivity(SportTypes.RUNNING);
+    private String getPath() {
+        FileChooser fileChooser = new FileChooser();
+        FileChooser.ExtensionFilter extFilter =
+                new FileChooser.ExtensionFilter("GPX files (*.gpx)", "*.gpx");
+        fileChooser.getExtensionFilters().add(extFilter);
+
+        return fileChooser.showOpenDialog(GUI.stage).getAbsolutePath();
     }
 
-    public void swimmingInput() throws IOException, ParserConfigurationException, SAXException {
-        initActivity(SportTypes.SWIMMING);
-    }
-
-    public void cyclingInput() throws IOException, ParserConfigurationException, SAXException {
-        initActivity(SportTypes.CYCLING);
+    public void sportInput(ActionEvent actionEvent) throws IOException {
+        String sport = ((MenuItem) actionEvent.getSource()).getId();
+        initActivity(StringToSportHelper.getSport(sport));
     }
 }
