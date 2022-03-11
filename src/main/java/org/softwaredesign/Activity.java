@@ -12,9 +12,9 @@ import java.util.List;
 
 public class Activity {
     private final GPX gpx;
-    private final SportTypes sport;
+    private final Sport sport;
 
-    public Activity(String gpxPath, SportTypes sport)
+    public Activity(String gpxPath, Sport sport)
             throws IOException {
         this.sport = sport;
         gpx = GPX.read(gpxPath);

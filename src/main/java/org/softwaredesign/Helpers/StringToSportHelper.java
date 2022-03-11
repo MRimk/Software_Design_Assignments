@@ -1,18 +1,18 @@
 package org.softwaredesign.Helpers;
 
-import org.softwaredesign.SportTypes;
+import org.softwaredesign.Sport;
 
 import java.util.Map;
 
 import static java.util.Map.entry;
 
 public class StringToSportHelper {
-    private static final Map<String, SportTypes> stringSportMap = Map.ofEntries(
-            entry("running", SportTypes.RUNNING),
-            entry("swimming", SportTypes.SWIMMING),
-            entry("cycling", SportTypes.CYCLING)
+    private static final Map<String, Sport> stringSportMap = Map.ofEntries(
+            entry("running", Sport.RUNNING),
+            entry("swimming", Sport.SWIMMING),
+            entry("cycling", Sport.CYCLING)
     );
-    public static SportTypes getSport(String sport){
+    public static Sport getSport(String sport){
         return stringSportMap.get(sport);
     }
 }

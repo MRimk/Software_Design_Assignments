@@ -9,18 +9,17 @@ repositories {
 }
 
 javafx {
-    version = "17"
-    modules = [ 'javafx.controls', 'javafx.fxml', 'javafx.swing', 'javafx.web' ]
+    version = "16"
+    modules = [ 'javafx.controls', 'javafx.fxml']
 }
 
 dependencies {
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
     implementation group: 'io.jenetics', name: 'jpx', version: '2.3.0'
     implementation group: 'com.google.code.gson', name: 'gson', version: '2.9.0'
-    implementation group:'com.dlsc', name: 'GMapsFX', version: '11.0.6'
 }
 
-mainClassName = "$moduleName/org.softwaredesign.MainApp"
+mainClassName = "$moduleName/org.softwaredesign.GUI"
 
 jlink {
     options = ['--strip-debug', '--compress', '2', '--no-header-files', '--no-man-pages']

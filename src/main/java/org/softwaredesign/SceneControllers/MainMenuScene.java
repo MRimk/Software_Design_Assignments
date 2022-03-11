@@ -5,14 +5,14 @@ import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import org.softwaredesign.Activity;
 import org.softwaredesign.GUI;
-import org.softwaredesign.SportTypes;
+import org.softwaredesign.Sport;
 import org.softwaredesign.Helpers.StringToSportHelper;
 
 import java.io.IOException;
 
 public class MainMenuScene {
 
-    private void initActivity(SportTypes sport) throws IOException {
+    private void initActivity(Sport sport) throws IOException {
         String GPXPath = getGPXPath();
 
         GUI.activity = new Activity(GPXPath, sport);

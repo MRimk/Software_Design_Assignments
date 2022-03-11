@@ -1,6 +1,6 @@
 package org.softwaredesign;
 
-public enum SportTypes {
+public enum Sport {
     RUNNING,
     CYCLING,
     SWIMMING

@@ -24,7 +24,6 @@ public class Main {
 
         Activity activity = enterNewActivity(user);
         activity.displayMetrics();
-        MapHelper.displayMap(activity.getCoordinates());
     }
 
     private static Activity enterNewActivity(User user) throws IOException, ParserConfigurationException, SAXException {
@@ -37,13 +36,13 @@ public class Main {
 
         String sport = scanner.nextLine();
 
-        SportTypes chosenSport = SportTypes.CYCLING;
+        Sport chosenSport = Sport.CYCLING;
         switch (sport){
             case "RUNNING":
-                chosenSport = SportTypes.RUNNING;
+                chosenSport = Sport.RUNNING;
                 break;
             case "SWIMMING":
-                chosenSport = SportTypes.SWIMMING;
+                chosenSport = Sport.SWIMMING;
                 break;
             default:
                 break;
@@ -52,9 +51,9 @@ public class Main {
     }
 
     private static String getAllSports() {
-        List<SportTypes> sportsList = Arrays.asList(SportTypes.values());
+        List<Sport> sportsList = Arrays.asList(Sport.values());
         StringBuilder allSports = new StringBuilder();
-        for(SportTypes sport : sportsList){
+        for(Sport sport : sportsList){
             allSports.append(sport.toString());
             allSports.append("\n");
         }
