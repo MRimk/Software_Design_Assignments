@@ -14,7 +14,6 @@ public class Pace extends Metric{
 
     @Override
     public String display(GPX gpx){
-        String averagePace = "Average Pace: ";
         Double totalPace = calculateMetricTotal(gpx);
         int minutes = totalPace.intValue();
         double allSeconds = (totalPace - minutes) * 60.0;
@@ -53,9 +52,5 @@ public class Pace extends Metric{
         Time timeCalculator = new Time();
         Distance distanceCalculator = new Distance();
         return timeToMinutes(timeCalculator.calculateMetricTotal(gpx))/distanceCalculator.calculateMetricTotal(gpx);
-    }
-    @Override
-    public Chart chartMetric(GPX gpx) {
-        return new Chart();
     }
 }

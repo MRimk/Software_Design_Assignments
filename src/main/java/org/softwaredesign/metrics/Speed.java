@@ -46,8 +46,4 @@ public class Speed extends Metric{
         Distance distanceCalculator = new Distance();
         return distanceCalculator.calculateMetricTotal(gpx)/timeCalculator.calculateMetricTotal(gpx);
     }
-    @Override
-    public Chart chartMetric(GPX gpx) {
-        return new Chart();
-    }
 }
