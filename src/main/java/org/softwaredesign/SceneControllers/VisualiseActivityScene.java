@@ -6,7 +6,7 @@ import org.softwaredesign.GUI;
 
 import java.io.IOException;
 
-public class VisualizeActivityScene {
+public class VisualiseActivityScene {
     @FXML
     Label output;
 

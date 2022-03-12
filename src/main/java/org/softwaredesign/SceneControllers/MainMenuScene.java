@@ -17,7 +17,7 @@ public class MainMenuScene {
 
         GUI.activity = new Activity(GPXPath, sport);
 
-        GUI.switchScene("VisualizeActivity.fxml");
+        GUI.switchScene("VisualiseActivity.fxml");
     }
 
     private String getGPXPath() {
