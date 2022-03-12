@@ -60,9 +60,7 @@ public class GUI extends Application {
     public static void setActivity(Activity newActivity){
         activity = newActivity;
     }
-    public static void setStage(Stage newStage){
-        stage = newStage;
-    }
+    public static void setStage(Stage newStage){ stage = newStage; }
     public static Stage getStage(){
         return stage;
     }
@@ -72,8 +70,5 @@ public class GUI extends Application {
     public static User getUser(){
         return user;
     }
-
-    public static void main(String[] args) {
-        launch(args);
-    }
+    public static void main(String[] args) { launch(args); }
 }
