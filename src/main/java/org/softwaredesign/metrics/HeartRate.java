@@ -1,15 +1,8 @@
 package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.*;
-import org.softwaredesign.Chart;
-import org.w3c.dom.Document;
-
-import java.lang.annotation.Documented;
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 public class HeartRate extends Metric{
     public HeartRate(){

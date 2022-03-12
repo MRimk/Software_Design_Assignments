@@ -5,8 +5,6 @@ import io.jenetics.jpx.GPX;
 import io.jenetics.jpx.Track;
 import io.jenetics.jpx.TrackSegment;
 import io.jenetics.jpx.WayPoint;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Metric {

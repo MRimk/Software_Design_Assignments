@@ -1,13 +1,7 @@
 package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
-import io.jenetics.jpx.Track;
-import io.jenetics.jpx.TrackSegment;
 import io.jenetics.jpx.WayPoint;
-import org.softwaredesign.Chart;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -25,10 +19,10 @@ public class Time extends Metric {
         int hours = elapsedTime.intValue();
         double minutesInDecimal = (elapsedTime - hours) * 60;
         int minutes = (int)minutesInDecimal;
-        double seconds = (minutesInDecimal - minutes) * 60;
-
-        time += hours + ":" + minutes + ":" +  BigDecimal.valueOf(seconds).setScale(2, RoundingMode.HALF_DOWN);
-
+        String minutesString = (minutes < 10) ? "0" + minutes : "" + minutes;
+        int seconds = (int)((minutesInDecimal - minutes) * 60);
+        String secondsString = (seconds < 10) ? "0" + seconds : "" + seconds;
+        time += hours + ":" + minutesString + ":" +  secondsString;
         return time;
     }
     @Override
@@ -37,7 +31,6 @@ public class Time extends Metric {
         List<WayPoint> waypoints = getWaypoints(gpx);
         Optional<ZonedDateTime> time;
         ZonedDateTime timePoint;
-
         for(WayPoint point : waypoints){
             time = point.getTime();
             if(time.isPresent()) {

@@ -1,11 +1,11 @@
-package org.softwaredesign.SceneControllers;
+package org.softwaredesign.scenecontrollers;
 
 import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.softwaredesign.GUI;
-import org.softwaredesign.Helpers.StringToGenderHelper;
+import org.softwaredesign.helpers.StringToGenderHelper;
 import org.softwaredesign.User;
 
 import java.io.File;
@@ -38,14 +38,14 @@ public class CreateUserScene {
         Gson gson = new Gson();
 
         if (checkDataValidity()) {
-            GUI.user = new User(
+            GUI.setUserFromScene(new User(
                     name.getText(),
                     Integer.valueOf(age.getText()),
                     Double.valueOf(weight.getText()),
                     Integer.valueOf(height.getText()),
-                    StringToGenderHelper.getGender(gender.getText()));
+                    StringToGenderHelper.getGender(gender.getText())));
 
-            saveUserData(gson.toJson(GUI.user));
+            saveUserData(gson.toJson(GUI.getUser()));
             GUI.switchScene("MainMenu.fxml");
         }
     }

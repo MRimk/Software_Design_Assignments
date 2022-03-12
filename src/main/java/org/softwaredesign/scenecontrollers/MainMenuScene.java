@@ -1,21 +1,21 @@
-package org.softwaredesign.SceneControllers;
+package org.softwaredesign.scenecontrollers;
 
 import javafx.event.ActionEvent;
 import javafx.scene.control.MenuItem;
 import javafx.stage.FileChooser;
 import org.softwaredesign.Activity;
 import org.softwaredesign.GUI;
-import org.softwaredesign.Sport;
-import org.softwaredesign.Helpers.StringToSportHelper;
+import org.softwaredesign.enumerators.Sport;
+import org.softwaredesign.helpers.StringToSportHelper;
 
 import java.io.IOException;
 
 public class MainMenuScene {
 
     private void initActivity(Sport sport) throws IOException {
-        String GPXPath = getGPXPath();
+        String gpxPath = getGPXPath();
 
-        GUI.activity = new Activity(GPXPath, sport);
+        GUI.setActivity(new Activity(gpxPath, sport));
 
         GUI.switchScene("VisualiseActivity.fxml");
     }
@@ -26,7 +26,7 @@ public class MainMenuScene {
                 new FileChooser.ExtensionFilter("GPX files (*.gpx)", "*.gpx");
         fileChooser.getExtensionFilters().add(extFilter);
 
-        return fileChooser.showOpenDialog(GUI.stage).getAbsolutePath();
+        return fileChooser.showOpenDialog(GUI.getStage()).getAbsolutePath();
     }
 
     public void sportInput(ActionEvent actionEvent) throws IOException {

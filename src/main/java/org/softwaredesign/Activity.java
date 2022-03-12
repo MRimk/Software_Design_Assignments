@@ -2,7 +2,8 @@ package org.softwaredesign;
 
 import io.jenetics.jpx.GPX;
 import io.jenetics.jpx.WayPoint;
-import org.softwaredesign.Helpers.SportToMetricsHelper;
+import org.softwaredesign.enumerators.Sport;
+import org.softwaredesign.helpers.SportToMetricsHelper;
 import org.softwaredesign.metrics.Metric;
 
 import java.io.IOException;
@@ -25,7 +26,6 @@ public class Activity {
         StringBuilder metricsText = new StringBuilder();
         metricsText.insert(0, "");
         for(Metric metric : metricsList){
-            System.out.println(metric.display(gpx));
             metricsText.append(metric.display(gpx));
             metricsText.append("\n");
         }
@@ -34,7 +34,7 @@ public class Activity {
 
     public List<List<Double>> getCoordinates(){
         List<WayPoint> waypoints = SportToMetricsHelper.getSportMetrics(sport)[0].getWaypoints(gpx);
-        List<List<Double>> coords = new ArrayList<List<Double>>();
+        List<List<Double>> coords = new ArrayList<>();
         List<Double> coordinate = new ArrayList<>();
         for(WayPoint point : waypoints){
             coordinate.add(point.getLatitude().doubleValue());

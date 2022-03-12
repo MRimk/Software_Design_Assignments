@@ -1,7 +1,6 @@
 package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
-import org.softwaredesign.Chart;
 import org.softwaredesign.GUI;
 
 import java.util.ArrayList;
@@ -18,7 +17,7 @@ public class CaloriesBurnt extends Metric{
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
         ArrayList<Double> caloriesPoints = new ArrayList<>();
-        caloriesPoints.add(calculateMetricTotal(gpx));
+        caloriesPoints.add(calculateMetricTotal(gpx));  //it has only one value since one cannot track the calories burnt during the activity
         return caloriesPoints;
     }
     @Override
@@ -26,7 +25,7 @@ public class CaloriesBurnt extends Metric{
         Time timeCalculator = new Time();
         double totalTimeInMinutes = timeCalculator.calculateMetricTotal(gpx) * 60;
         double met = 8;                       //data taken from https://metscalculator.com/
-        double userWeight = GUI.user.getWeight();
+        double userWeight = GUI.getUser().getWeight();
         return totalTimeInMinutes * met * 3.5 * userWeight / 200;
     }
 }

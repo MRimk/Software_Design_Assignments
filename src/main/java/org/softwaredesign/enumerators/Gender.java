@@ -1,4 +1,4 @@
-package org.softwaredesign;
+package org.softwaredesign.enumerators;
 
 public enum Gender {
     MALE,

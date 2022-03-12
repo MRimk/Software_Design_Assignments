@@ -1,4 +1,4 @@
-package org.softwaredesign.SceneControllers;
+package org.softwaredesign.scenecontrollers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -11,7 +11,7 @@ public class VisualiseActivityScene {
     Label output;
 
     public void initialize() {
-        output.setText(GUI.activity.displayMetrics());
+        output.setText(GUI.getActivity().displayMetrics());
     }
 
     public void backToMainMenu() throws IOException {

@@ -1,12 +1,9 @@
 package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.*;
-import org.softwaredesign.Chart;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class Elevation extends Metric{
     public Elevation(){
@@ -21,12 +18,16 @@ public class Elevation extends Metric{
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
         ArrayList<Double> elevationPoints = new ArrayList<>();
         List<WayPoint> waypoints = getWaypoints(gpx);
-        WayPoint previousPoint = waypoints.get(0);
         double elevGain;
+        Optional<Length> optionalElevation;
+        Optional<Length> previousOptionalElevation = waypoints.get(0).getElevation();
         for(WayPoint point : waypoints){
-            elevGain = point.getElevation().get().to(Length.Unit.METER) - previousPoint.getElevation().get().to(Length.Unit.METER);
-            elevationPoints.add(elevGain);
-            previousPoint = point;
+            optionalElevation = point.getElevation();
+            if(optionalElevation.isPresent() && previousOptionalElevation.isPresent()) {
+                elevGain = optionalElevation.get().to(Length.Unit.METER) - previousOptionalElevation.get().to(Length.Unit.METER);
+                elevationPoints.add(elevGain);
+                previousOptionalElevation = optionalElevation;
+            }
         }
         return elevationPoints;
     }

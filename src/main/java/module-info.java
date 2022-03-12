@@ -10,8 +10,10 @@ module Software_Design_Assignments {
     exports org.softwaredesign;
     exports org.softwaredesign.metrics;
     opens org.softwaredesign.metrics to com.google.gson, javafx.fxml;
-    exports org.softwaredesign.SceneControllers;
-    opens org.softwaredesign.SceneControllers to com.google.gson, javafx.fxml;
-    exports org.softwaredesign.Helpers;
-    opens org.softwaredesign.Helpers to com.google.gson, javafx.fxml;
+    exports org.softwaredesign.scenecontrollers;
+    opens org.softwaredesign.scenecontrollers to com.google.gson, javafx.fxml;
+    exports org.softwaredesign.helpers;
+    opens org.softwaredesign.helpers to com.google.gson, javafx.fxml;
+    exports org.softwaredesign.enumerators;
+    opens org.softwaredesign.enumerators to com.google.gson, javafx.fxml;
 }

@@ -1,11 +1,7 @@
 package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
-import io.jenetics.jpx.Track;
-import io.jenetics.jpx.TrackSegment;
 import io.jenetics.jpx.WayPoint;
-import org.softwaredesign.Chart;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,14 +18,12 @@ public class Cadence extends Metric{
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
         ArrayList<Double> cadencePoints = new ArrayList<>();
         List<WayPoint> waypoints = getWaypoints(gpx);
-
         for(WayPoint point :waypoints){
             point.getExtensions().ifPresent( extensions ->
-                    cadencePoints.add(Double.parseDouble(extensions.getElementsByTagName("ns3:cad").item(0).getTextContent()))
+                    // adjustment made because of weird Garmin protocol
+                    cadencePoints.add(Double.parseDouble(extensions.getElementsByTagName("ns3:cad").item(0).getTextContent()) + 88)
             );
         }
-
-
         return cadencePoints;
     }
     @Override
@@ -37,9 +31,11 @@ public class Cadence extends Metric{
         ArrayList<Double> allCadencePoints = calculateDataPoints(gpx);
 
         double sumOfPoints = 0.0;
+        int counter = 1;
         for(double point : allCadencePoints){
+            if(point != 0) counter++;
             sumOfPoints += point;
         }
-        return sumOfPoints / allCadencePoints.size();
+        return sumOfPoints / counter;
     }
 }

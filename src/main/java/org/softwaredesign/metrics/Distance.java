@@ -1,8 +1,6 @@
 package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.*;
-import org.softwaredesign.Chart;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;

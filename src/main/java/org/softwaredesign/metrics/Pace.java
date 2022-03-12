@@ -1,10 +1,6 @@
 package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
-import org.softwaredesign.Chart;
-
-import java.math.BigDecimal;
-import java.math.RoundingMode;
 import java.util.ArrayList;
 
 public class Pace extends Metric{
@@ -18,33 +14,24 @@ public class Pace extends Metric{
         int minutes = totalPace.intValue();
         double allSeconds = (totalPace - minutes) * 60.0;
         int seconds = (int)allSeconds;
-        return "Average Pace: " + minutes + ":" + seconds + " min/km";
+        String returnText = "Average Pace: " + minutes + ":";
+        String secondsString = (seconds < 10) ? "0" + seconds : "" + seconds;
+        return returnText + secondsString + " min/km";
     }
+
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
-        Time timeCalculator = new Time();
-        Distance distanceCalculator = new Distance();
-        ArrayList<Double> timePoints = timeToGaps(timeCalculator.calculateDataPoints(gpx));
-        ArrayList<Double> distancePoints = distanceCalculator.calculateDataPoints(gpx);
-        ArrayList<Double> speedPoints = new ArrayList<>();
-        for(int i = 1; i < distancePoints.size(); i++){
-            speedPoints.add(timePoints.get(i)/distancePoints.get(i));
+        Speed speedCalculator = new Speed();
+        ArrayList<Double> speedPoints = speedCalculator.calculateDataPoints(gpx);
+        ArrayList<Double> pacePoints = new ArrayList<>();
+        for(Double point : speedPoints){
+            pacePoints.add(1 / point);
         }
-        return speedPoints;
+        return pacePoints;
     }
 
     private Double timeToMinutes(Double timePoint) {
         return timePoint * 60.0;
-    }
-
-    private ArrayList<Double> timeToGaps(ArrayList<Double> time) {
-        ArrayList<Double> timeGaps = new ArrayList<>();
-        Double previousTime = time.get(0);
-        for(Double timePoint : time){
-            timeGaps.add(timeToMinutes(timePoint - previousTime));
-            previousTime = timePoint;
-        }
-        return timeGaps;
     }
 
     @Override

@@ -14,13 +14,13 @@ import java.util.Objects;
 
 
 public class GUI extends Application {
-    public static Stage stage;
-    public static User user;
-    public static Activity activity;
+    private static Stage stage;
+    private static User user;
+    private static Activity activity;
 
     @Override
     public void start(Stage startStage) throws Exception {
-        stage = startStage;
+        setStage(startStage);
 
         Parent root = loadScene(chooseStartScene());
 
@@ -43,16 +43,34 @@ public class GUI extends Application {
 
     private String chooseStartScene() {
         try {
-            loadUser();
+            setUserFromFile();
             return "MainMenu.fxml";
         } catch (IOException e) {
             return "CreateUser.fxml";
         }
     }
 
-    private void loadUser() throws FileNotFoundException {
+    private static void setUserFromFile() throws FileNotFoundException {
         Gson gson = new Gson();
         user = gson.fromJson(new FileReader("src/main/resources/user_data"), User.class);
+    }
+    public static void setUserFromScene(User newUser){
+        user = newUser;
+    }
+    public static void setActivity(Activity newActivity){
+        activity = newActivity;
+    }
+    public static void setStage(Stage newStage){
+        stage = newStage;
+    }
+    public static Stage getStage(){
+        return stage;
+    }
+    public static Activity getActivity(){
+        return activity;
+    }
+    public static User getUser(){
+        return user;
     }
 
     public static void main(String[] args) {

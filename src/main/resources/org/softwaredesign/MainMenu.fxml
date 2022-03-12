@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.softwaredesign.SceneControllers.MainMenuScene">
-   <children>
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.softwaredesign.scenecontrollers.MainMenuScene">
       <Label layoutX="170.0" layoutY="77.0" text="Main Menu">
          <font>
             <Font name="Segoe UI Black" size="48.0" />
@@ -40,14 +39,9 @@
          </font>
       </MenuButton>
       <ImageView fitHeight="143.0" fitWidth="122.0" layoutX="464.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imgs/BEAM-logos_black.png" />
-         </image>
+        <Image url="@imgs/BEAM-logos_black.png" />
       </ImageView>
       <ImageView fitHeight="143.0" fitWidth="122.0" layoutX="14.0" layoutY="86.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@imgs/BEAM-logos_black.png" />
-         </image>
+        <Image url="@imgs/BEAM-logos_black.png" />
       </ImageView>
-   </children>
 </AnchorPane>

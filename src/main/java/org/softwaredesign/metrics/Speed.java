@@ -1,8 +1,6 @@
 package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
-import org.softwaredesign.Chart;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
@@ -21,7 +19,6 @@ public class Speed extends Metric{
         Time timeCalculator = new Time();
         Distance distanceCalculator = new Distance();
         ArrayList<Double> timePoints = timeToIntervals(timeCalculator.calculateDataPoints(gpx));
-
         ArrayList<Double> distancePoints = distanceCalculator.calculateDataPoints(gpx);
         ArrayList<Double> speedPoints = new ArrayList<>();
         for(int i = 1; i < distancePoints.size(); i++){

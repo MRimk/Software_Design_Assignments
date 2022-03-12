@@ -1,5 +1,7 @@
 package org.softwaredesign;
 
+import org.softwaredesign.enumerators.Gender;
+
 public class User {
     String name;
     Integer age;
@@ -13,14 +15,6 @@ public class User {
         this.weight = weight;
         this.height = height;
         this.gender = gender;
-    }
-
-    public void prettyPrint() {
-        System.out.println("Name: " + name);
-        System.out.println("Age: " + age);
-        System.out.println("Weight: " + weight);
-        System.out.println("Height: " + height);
-        System.out.println("Gender: " + gender);
     }
 
     public Double getWeight(){
