@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="Garmin Connect" version="1.1"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/11.xsd"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/TrackPointExtension/v1"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+  <metadata>
+    <link href="connect.garmin.com">
+      <text>Garmin Connect</text>
+    </link>
+    <time>2021-07-08T18:09:34.000Z</time>
+  </metadata>
+  <trk>
+    <name>Vilnius Open Water Swimming</name>
+    <type>open_water_swimming</type>
+    <trkseg>
+      <trkpt lat="54.7896230220794677734375" lon="25.43251250870525836944580078125">
+        <ele>137</ele>
+        <time>2021-07-08T18:09:34.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.789869450032711029052734375" lon="25.433610789477825164794921875">
+        <ele>137</ele>
+        <time>2021-07-08T18:10:45.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>27</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.7900939173996448516845703125" lon="25.4340830259025096893310546875">
+        <ele>137</ele>
+        <time>2021-07-08T18:12:01.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>24</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.7903431951999664306640625" lon="25.4347723536193370819091796875">
+        <ele>137</ele>
+        <time>2021-07-08T18:13:47.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>26</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.78997296653687953948974609375" lon="25.43441805057227611541748046875">
+        <ele>137</ele>
+        <time>2021-07-08T18:14:53.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>24</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.7898791730403900146484375" lon="25.4337561316788196563720703125">
+        <ele>137</ele>
+        <time>2021-07-08T18:16:06.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>23</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.789687059819698333740234375" lon="25.43296278454363346099853515625">
+        <ele>137</ele>
+        <time>2021-07-08T18:17:32.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>23</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.7896305657923221588134765625" lon="25.43243137188255786895751953125">
+        <ele>139</ele>
+        <time>2021-07-08T18:18:56.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.789570383727550506591796875" lon="25.43254972435534000396728515625">
+        <ele>137</ele>
+        <time>2021-07-08T18:21:09.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.78941582143306732177734375" lon="25.4328535683453083038330078125">
+        <ele>137</ele>
+        <time>2021-07-08T18:22:47.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>24</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="54.78958203457295894622802734375" lon="25.43263572268187999725341796875">
+        <ele>137</ele>
+        <time>2021-07-08T18:23:46.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
