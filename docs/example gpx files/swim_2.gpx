@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gpx creator="Garmin Connect" version="1.1"
+  xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/11.xsd"
+  xmlns:ns3="http://www.garmin.com/xmlschemas/TrackPointExtension/v1"
+  xmlns="http://www.topografix.com/GPX/1/1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.garmin.com/xmlschemas/GpxExtensions/v3">
+  <metadata>
+    <link href="connect.garmin.com">
+      <text>Garmin Connect</text>
+    </link>
+    <time>2021-08-02T10:40:29.000Z</time>
+  </metadata>
+  <trk>
+    <name>Ghajnsielem Open Water Swimming</name>
+    <type>open_water_swimming</type>
+    <trkseg>
+      <trkpt lat="36.013378389179706573486328125" lon="14.3238063342869281768798828125">
+        <ele>8</ele>
+        <time>2021-08-02T10:40:29.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.0136259905993938446044921875" lon="14.323308281600475311279296875">
+        <ele>5</ele>
+        <time>2021-08-02T10:46:09.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.01373319514095783233642578125" lon="14.32305539958178997039794921875">
+        <ele>5</ele>
+        <time>2021-08-02T10:48:20.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>23</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.0133792273700237274169921875" lon="14.3225812353193759918212890625">
+        <ele>9.3999996185302734375</ele>
+        <time>2021-08-02T10:52:45.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.01308234035968780517578125" lon="14.3223683349788188934326171875">
+        <ele>10.19999980926513671875</ele>
+        <time>2021-08-02T10:56:01.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.0126707889139652252197265625" lon="14.32144372723996639251708984375">
+        <ele>13.6000003814697265625</ele>
+        <time>2021-08-02T11:01:37.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.01289860904216766357421875" lon="14.32132051326334476470947265625">
+        <ele>16.799999237060546875</ele>
+        <time>2021-08-02T11:02:28.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>31</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.01290129125118255615234375" lon="14.32155470363795757293701171875">
+        <ele>15.6000003814697265625</ele>
+        <time>2021-08-02T11:04:26.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.01281504146754741668701171875" lon="14.321646988391876220703125">
+        <ele>14</ele>
+        <time>2021-08-02T11:07:10.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.013478972017765045166015625" lon="14.32191093452274799346923828125">
+        <ele>14</ele>
+        <time>2021-08-02T11:10:56.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.01309575140476226806640625" lon="14.3224203027784824371337890625">
+        <ele>9.6000003814697265625</ele>
+        <time>2021-08-02T11:16:48.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>31</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.0131297819316387176513671875" lon="14.3224771320819854736328125">
+        <ele>9.19999980926513671875</ele>
+        <time>2021-08-02T11:17:32.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.01326380856335163116455078125" lon="14.3232403881847858428955078125">
+        <ele>5</ele>
+        <time>2021-08-02T11:20:53.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>27</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.0135653056204319000244140625" lon="14.32378378696739673614501953125">
+        <ele>8</ele>
+        <time>2021-08-02T11:24:13.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+      <trkpt lat="36.01355499587953090667724609375" lon="14.323807172477245330810546875">
+        <ele>8</ele>
+        <time>2021-08-02T11:24:29.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension>
+            <ns3:cad>0</ns3:cad>
+          </ns3:TrackPointExtension>
+        </extensions>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
