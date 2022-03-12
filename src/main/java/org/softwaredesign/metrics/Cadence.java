@@ -42,9 +42,4 @@ public class Cadence extends Metric{
         }
         return sumOfPoints / allCadencePoints.size();
     }
-
-    @Override
-    public Chart chartMetric(GPX gpx) {
-        return new Chart();
-    }
 }

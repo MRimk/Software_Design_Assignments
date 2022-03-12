@@ -15,7 +15,7 @@ public class Power extends Metric{
     private static final double DRIVETRAIN_LOSS = 0.09;
     private static final double GRAVITATIONAL_FORCE_CONSTANT  = 9.8067;
     private static final double GRADE = 1.0;
-    private static final double BICYCLE_WEIGHT  = 15.0; //TODO: figure out how to pass user data, since it is bike + person weight
+    private static final double BICYCLE_WEIGHT  = 15.0;
     private static final double ROLLING_RESISTANCE_COEFFICIENT  = 0.0219;
     private static final double DRAG_COEFFICIENT  = 0.4; // taken from https://bicycles.stackexchange.com/questions/44092/what-is-the-average-cda-to-weight-relationship-of-a-professional-road-cyclist
 
@@ -59,9 +59,5 @@ public class Power extends Metric{
         Time timeCalculator = new Time();
         double velocityPoint = timeCalculator.calculateMetricTotal(gpx);
         return  (1-DRIVETRAIN_LOSS) * (fGravity() + fRolling() + fDrag(velocityPoint)) * velocityPoint;
-    }
-    @Override
-    public Chart chartMetric(GPX gpx) {
-        return new Chart();
     }
 }

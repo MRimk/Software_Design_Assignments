@@ -38,7 +38,6 @@ public class StrokeLength extends Metric {
         }
         double averageCadence = sumOfCadence / cadencePoints.size();
         double totalStrokes = averageCadence * totalTimeInMinutes;
-        double averageStrokeLength = totalDistance / totalStrokes;
 
         for(double cadencePoint : cadencePoints){
             strokePoints.add(totalDistance / (cadencePoint * totalTimeInMinutes));
@@ -55,10 +54,5 @@ public class StrokeLength extends Metric {
             sumOfPoints += point;
         }
         return sumOfPoints / strokeLengthPoints.size();
-    }
-
-    @Override
-    public Chart chartMetric(GPX gpx) {
-        return new Chart();
     }
 }

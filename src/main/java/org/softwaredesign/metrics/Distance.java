@@ -36,8 +36,4 @@ public class Distance extends Metric{
         }
         return totalDistance;
     }
-    @Override
-    public Chart chartMetric(GPX gpx) {
-        return new Chart();
-    }
 }

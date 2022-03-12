@@ -39,8 +39,4 @@ public class Elevation extends Metric{
         }
         return totalElevation;
     }
-    @Override
-    public Chart chartMetric(GPX gpx) {
-        return new Chart();
-    }
 }

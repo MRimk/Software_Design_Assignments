@@ -36,9 +36,14 @@ public class Time extends Metric {
         ArrayList<Double> timePoints = new ArrayList<>();
         List<WayPoint> waypoints = getWaypoints(gpx);
         Optional<ZonedDateTime> time;
+        ZonedDateTime timePoint;
+
         for(WayPoint point : waypoints){
             time = point.getTime();
-            timePoints.add(time.get().getHour() + time.get().getMinute() / 60.0 + time.get().getSecond() / 3600.0);
+            if(time.isPresent()) {
+                timePoint = time.get();
+                timePoints.add(timePoint.getHour() + timePoint.getMinute() / 60.0 + timePoint.getSecond() / 3600.0);
+            }
         }
         return timePoints;
     }
@@ -46,10 +51,5 @@ public class Time extends Metric {
     public Double calculateMetricTotal(GPX gpx) {
         ArrayList<Double> timePoints = calculateDataPoints(gpx);
         return timePoints.get(timePoints.size() - 1) - timePoints.get(0);
-    }
-
-    @Override
-    public Chart chartMetric(GPX gpx) {
-        return new Chart();
     }
 }

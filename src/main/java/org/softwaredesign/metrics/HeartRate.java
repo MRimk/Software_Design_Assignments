@@ -24,9 +24,6 @@ public class HeartRate extends Metric{
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
         ArrayList<Double> hrPoints = new ArrayList<>();
         List<WayPoint> waypoints = getWaypoints(gpx);
-
-
-
         for(WayPoint point :waypoints){
             point.getExtensions().ifPresent( extensions -> {
                         if (extensions.getElementsByTagName("ns3:hr").getLength() != 0) {
@@ -46,9 +43,5 @@ public class HeartRate extends Metric{
             sumOfPoints += point;
         }
         return sumOfPoints / allHRPoints.size();
-    }
-    @Override
-    public Chart chartMetric(GPX gpx) {
-        return new Chart();
     }
 }
