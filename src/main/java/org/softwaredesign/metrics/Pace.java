@@ -40,4 +40,13 @@ public class Pace extends Metric{
         Distance distanceCalculator = new Distance();
         return timeToMinutes(timeCalculator.calculateMetricTotal(gpx))/distanceCalculator.calculateMetricTotal(gpx);
     }
+
+    @Override
+    public boolean isChartable(){
+        return true;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return false;
+    }
 }

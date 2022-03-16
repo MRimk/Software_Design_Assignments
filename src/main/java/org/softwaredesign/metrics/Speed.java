@@ -43,4 +43,12 @@ public class Speed extends Metric{
         Distance distanceCalculator = new Distance();
         return distanceCalculator.calculateMetricTotal(gpx)/timeCalculator.calculateMetricTotal(gpx);
     }
+    @Override
+    public boolean isChartable(){
+        return true;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return false;
+    }
 }

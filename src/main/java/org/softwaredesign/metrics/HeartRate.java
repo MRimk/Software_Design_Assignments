@@ -37,4 +37,13 @@ public class HeartRate extends Metric{
         }
         return sumOfPoints / allHRPoints.size();
     }
+
+    @Override
+    public boolean isChartable(){
+        return true;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return false;
+    }
 }

@@ -40,4 +40,13 @@ public class Elevation extends Metric{
         }
         return totalElevation;
     }
+
+    @Override
+    public boolean isChartable(){
+        return true;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return true;
+    }
 }

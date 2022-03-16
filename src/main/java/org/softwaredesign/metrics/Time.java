@@ -45,4 +45,12 @@ public class Time extends Metric {
         ArrayList<Double> timePoints = calculateDataPoints(gpx);
         return timePoints.get(timePoints.size() - 1) - timePoints.get(0);
     }
+    @Override
+    public boolean isChartable(){
+        return false;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return true;
+    }
 }

@@ -57,4 +57,13 @@ public class Power extends Metric{
         double velocityPoint = timeCalculator.calculateMetricTotal(gpx);
         return  (1-DRIVETRAIN_LOSS) * (fGravity() + fRolling() + fDrag(velocityPoint)) * velocityPoint;
     }
+
+    @Override
+    public boolean isChartable(){
+        return false;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return false;
+    }
 }

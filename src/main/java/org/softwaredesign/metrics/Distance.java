@@ -34,4 +34,13 @@ public class Distance extends Metric{
         }
         return totalDistance;
     }
+
+    @Override
+    public boolean isChartable(){
+        return false;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return true;
+    }
 }

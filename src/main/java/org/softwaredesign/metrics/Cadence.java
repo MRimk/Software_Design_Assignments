@@ -5,7 +5,7 @@ import io.jenetics.jpx.WayPoint;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cadence extends Metric{
+public class Cadence extends Metric{    //TODO: make class singleton
     public Cadence(){
         //do nothing because object is purely a calculator
     }
@@ -37,5 +37,14 @@ public class Cadence extends Metric{
             sumOfPoints += point;
         }
         return sumOfPoints / counter;
+    }
+
+    @Override
+    public boolean isChartable(){
+        return true;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return false;
     }
 }

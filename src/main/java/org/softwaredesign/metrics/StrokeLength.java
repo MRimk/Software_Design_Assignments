@@ -40,4 +40,12 @@ public class StrokeLength extends Metric {
         }
         return sumOfPoints / strokeLengthPoints.size();
     }
+    @Override
+    public boolean isChartable(){
+        return true;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return false;
+    }
 }

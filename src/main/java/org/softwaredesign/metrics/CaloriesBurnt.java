@@ -28,4 +28,13 @@ public class CaloriesBurnt extends Metric{
         double userWeight = GUI.getUser().getWeight();
         return totalTimeInMinutes * met * 3.5 * userWeight / 200;
     }
+
+    @Override
+    public boolean isChartable(){
+        return false;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return true;
+    }
 }
