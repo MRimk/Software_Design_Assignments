@@ -49,4 +49,8 @@ public class Pace extends Metric{
     public boolean isUsedInGoals(){
         return false;
     }
+    @Override
+    public String getMetricName(){
+        return "Pace";
+    }
 }

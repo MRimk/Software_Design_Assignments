@@ -66,4 +66,8 @@ public class Power extends Metric{
     public boolean isUsedInGoals(){
         return false;
     }
+    @Override
+    public String getMetricName(){
+        return "Power";
+    }
 }

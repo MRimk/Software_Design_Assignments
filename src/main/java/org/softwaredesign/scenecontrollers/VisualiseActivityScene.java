@@ -15,6 +15,6 @@ public class VisualiseActivityScene {
     }
 
     public void backToMainMenu() throws IOException {
-        GUI.switchScene("MainMenu.fxml");
+        GUI.switchScene("scenes/MainMenu.fxml");
     }
 }

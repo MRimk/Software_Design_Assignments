@@ -47,4 +47,9 @@ public class Cadence extends Metric{    //TODO: make class singleton
     public boolean isUsedInGoals(){
         return false;
     }
+
+    @Override
+    public String getMetricName(){
+        return "Cadence";
+    }
 }

@@ -51,4 +51,8 @@ public class Speed extends Metric{
     public boolean isUsedInGoals(){
         return false;
     }
+    @Override
+    public String getMetricName(){
+        return "Speed";
+    }
 }

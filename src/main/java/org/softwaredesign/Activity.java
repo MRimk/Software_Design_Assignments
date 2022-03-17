@@ -4,6 +4,7 @@ import io.jenetics.jpx.GPX;
 import io.jenetics.jpx.WayPoint;
 import org.softwaredesign.enumerators.Sport;
 import org.softwaredesign.helpers.SportToMetricsHelper;
+import org.softwaredesign.helpers.StringToSportHelper;
 import org.softwaredesign.metrics.Metric;
 
 import java.io.IOException;
@@ -28,8 +29,25 @@ public class Activity {
         for(Metric metric : metricsList){
             metricsText.append(metric.display(gpx));
             metricsText.append("\n");
+            updateGoals(metric);
         }
         return metricsText.toString();
+    }
+
+    private void updateGoals(Metric metric) {
+        Integer numGoals = GUI.getUser().getNumGoals();
+        List<Goal> goalList = GUI.getUser().getGoalList();
+
+        for (int i = 0; i < numGoals; i++) {
+            Goal currentGoal = goalList.get(i);
+            Sport goalSport = StringToSportHelper.getSport(currentGoal.getSport());
+            if (goalSport.equals(sport)) {
+                if (currentGoal.getMetric().equals(metric.getMetricName())) {
+                    GUI.getUser().updateGoal(metric.calculateMetricTotal(gpx), i);
+                }
+            }
+        }
+        GUI.getUser().saveUserData();
     }
 
     public List<List<Double>> getCoordinates(){

@@ -49,4 +49,8 @@ public class Elevation extends Metric{
     public boolean isUsedInGoals(){
         return true;
     }
+    @Override
+    public String getMetricName(){
+        return "Elevation Gain";
+    }
 }

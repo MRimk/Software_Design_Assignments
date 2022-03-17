@@ -53,4 +53,8 @@ public class Time extends Metric {
     public boolean isUsedInGoals(){
         return true;
     }
+    @Override
+    public String getMetricName(){
+        return "Time";
+    }
 }

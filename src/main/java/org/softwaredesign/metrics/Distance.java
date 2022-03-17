@@ -43,4 +43,8 @@ public class Distance extends Metric{
     public boolean isUsedInGoals(){
         return true;
     }
+    @Override
+    public String getMetricName(){
+        return "Distance";
+    }
 }

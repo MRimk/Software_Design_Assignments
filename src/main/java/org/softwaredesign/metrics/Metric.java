@@ -13,6 +13,7 @@ public abstract class Metric {
     public abstract Double calculateMetricTotal(GPX gpx);
     public abstract boolean isChartable();
     public abstract boolean isUsedInGoals();
+    public abstract String getMetricName();
     public List<WayPoint> getWaypoints(GPX gpx){
         Track track = gpx.getTracks().get(0);
         TrackSegment segment = track.getSegments().get(0);

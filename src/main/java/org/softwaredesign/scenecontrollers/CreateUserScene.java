@@ -5,12 +5,14 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.softwaredesign.GUI;
+import org.softwaredesign.Goal;
 import org.softwaredesign.helpers.StringToGenderHelper;
 import org.softwaredesign.User;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CreateUserScene {
     @FXML
@@ -43,10 +45,11 @@ public class CreateUserScene {
                     Integer.valueOf(age.getText()),
                     Double.valueOf(weight.getText()),
                     Integer.valueOf(height.getText()),
-                    StringToGenderHelper.getGender(gender.getText())));
+                    StringToGenderHelper.getGender(gender.getText()),
+                    new ArrayList<>()));
 
-            saveUserData(gson.toJson(GUI.getUser()));
-            GUI.switchScene("MainMenu.fxml");
+            GUI.getUser().saveUserData();
+            GUI.switchScene("scenes/MainMenu.fxml");
         }
     }
 
@@ -106,24 +109,5 @@ public class CreateUserScene {
         }
 
         return valid;
-    }
-
-    private static void saveUserData(String compiledJSON) {
-        try {
-            File myObj = new File("src/main/resources/user_data");
-            if (!myObj.createNewFile()) {
-                System.out.println("File already exist");
-            }
-        }
-        catch (IOException e) {
-            System.out.println("Could not create file 'user_data'");
-        }
-
-        try (FileWriter writer = new FileWriter("src/main/resources/user_data")) {
-            writer.write(compiledJSON);
-        }
-        catch (IOException e) {
-            System.out.println("Could not write to file 'user_data'");
-        }
     }
 }

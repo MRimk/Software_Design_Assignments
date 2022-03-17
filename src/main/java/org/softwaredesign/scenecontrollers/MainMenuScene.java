@@ -17,7 +17,7 @@ public class MainMenuScene {
 
         GUI.setActivity(new Activity(gpxPath, sport));
 
-        GUI.switchScene("VisualiseActivity.fxml");
+        GUI.switchScene("scenes/VisualiseActivity.fxml");
     }
 
     private String getGPXPath() {
@@ -32,5 +32,9 @@ public class MainMenuScene {
     public void sportInput(ActionEvent actionEvent) throws IOException {
         String sport = ((MenuItem) actionEvent.getSource()).getId();
         initActivity(StringToSportHelper.getSport(sport));
+    }
+
+    public void goalInput() throws IOException {
+        GUI.switchScene("scenes/VisualiseGoals.fxml");
     }
 }

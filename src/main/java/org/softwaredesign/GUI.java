@@ -6,7 +6,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -33,7 +32,9 @@ public class GUI extends Application {
 
     public static void switchScene(String fxml) throws IOException {
         Parent pane = loadScene(fxml);
-        stage.setScene(new Scene(pane));
+        Scene scene = new Scene(pane);
+        scene.getStylesheets().add(Objects.requireNonNull(GUI.class.getResource("scenes/style.css")).toExternalForm());
+        stage.setScene(scene);
     }
 
     private static Parent loadScene(String fxml) throws IOException {
@@ -44,9 +45,9 @@ public class GUI extends Application {
     private String chooseStartScene() {
         try {
             setUserFromFile();
-            return "MainMenu.fxml";
+            return "scenes/MainMenu.fxml";
         } catch (IOException e) {
-            return "CreateUser.fxml";
+            return "scenes/CreateUser.fxml";
         }
     }
 
@@ -54,6 +55,7 @@ public class GUI extends Application {
         Gson gson = new Gson();
         user = gson.fromJson(new FileReader("src/main/resources/user_data"), User.class);
     }
+
     public static void setUserFromScene(User newUser){
         user = newUser;
     }

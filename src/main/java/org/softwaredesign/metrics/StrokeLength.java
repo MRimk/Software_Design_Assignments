@@ -48,4 +48,8 @@ public class StrokeLength extends Metric {
     public boolean isUsedInGoals(){
         return false;
     }
+    @Override
+    public String getMetricName(){
+        return "Stroke Length";
+    }
 }

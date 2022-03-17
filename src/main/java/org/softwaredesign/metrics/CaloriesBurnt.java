@@ -37,4 +37,8 @@ public class CaloriesBurnt extends Metric{
     public boolean isUsedInGoals(){
         return true;
     }
+    @Override
+    public String getMetricName(){
+        return "Calories Burnt";
+    }
 }
