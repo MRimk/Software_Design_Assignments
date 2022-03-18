@@ -61,4 +61,6 @@ public class Activity {
         }
         return coords;
     }
+
+    public GPX getGpx(){return gpx;}
 }

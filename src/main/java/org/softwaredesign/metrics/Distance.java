@@ -35,6 +35,17 @@ public class Distance extends Metric{
         return totalDistance;
     }
 
+    public ArrayList<Double> coveredDistancePoints(GPX gpx){
+        ArrayList<Double> distancePoints = calculateDataPoints(gpx);
+        double currentTotal = 0.0;
+        ArrayList<Double> resultList = new ArrayList<>();
+        for(Double point : distancePoints){
+            currentTotal += point;
+            resultList.add(currentTotal);
+        }
+        return resultList;
+    }
+
     @Override
     public boolean isChartable(){
         return false;
