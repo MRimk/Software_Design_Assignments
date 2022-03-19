@@ -1,17 +1,15 @@
 package org.softwaredesign;
 
+import javafx.scene.chart.*;
 import org.softwaredesign.metrics.Distance;
 import org.softwaredesign.metrics.Metric;
-//import javafx.scene.chart.Axis;
 import javafx.application.Application;
-import javafx.scene.chart.LineChart;
-import javafx.scene.chart.NumberAxis;
-import javafx.scene.chart.XYChart;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Chart extends Application {
         private final Metric metric;
@@ -25,7 +23,7 @@ public class Chart extends Application {
         public void start(Stage stage){
             if(!metric.isChartable()) return;
 
-            ArrayList<Double> dataPoints = new ArrayList<Double>(metric.calculateDataPoints(GUI.getActivity().getGpx()));
+            ArrayList<Double> dataPoints = new ArrayList<>(metric.calculateDataPoints(GUI.getActivity().getGpx()));
 
             Distance distanceCalculator = new Distance();
             ArrayList<Double> coveredDistancePoints = distanceCalculator.coveredDistancePoints(GUI.getActivity().getGpx());
@@ -33,17 +31,17 @@ public class Chart extends Application {
             NumberAxis xAx = new NumberAxis(0, coveredDistancePoints.get(coveredDistancePoints.size() - 1), 0.5); //TODO: take a look at other ways to get distance tick units
             NumberAxis yAx = new NumberAxis(min(dataPoints), max(dataPoints), getTickUnit(dataPoints));
 
-//          xAx.setLabel("Time (Minutes)");
+            xAx.setLabel("Time (Minutes)");
             yAx.setLabel("Distance (Kilometers)");
 
-            LineChart <NumberAxis, NumberAxis> chartDisplay = new LineChart(xAx, yAx);
-            XYChart.Series<NumberAxis, NumberAxis> dataSeries = new XYChart.Series();
+            LineChart <Number, Number> chartDisplay = new LineChart<>(xAx, yAx);
+            XYChart.Series<Number, Number> dataSeries = new XYChart.Series<>();
             dataSeries.setName(metric.getMetricName() + " Graph");
 
 
 
             for(int i = 0; i < dataPoints.size(); i++){
-                dataSeries.getData().add(new XYChart.Data(i, dataPoints.get(i)));
+                dataSeries.getData().add(new XYChart.Data<>(i, dataPoints.get(i)));
             }
             chartDisplay.getData().add(dataSeries);
 
