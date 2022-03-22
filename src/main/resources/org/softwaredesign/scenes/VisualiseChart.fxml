@@ -5,13 +5,13 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.softwaredesign.scenecontrollers.VisualiseChartScene">
    <children>
-      <LineChart fx:id="chartDisplay" layoutX="50.0">
+      <AreaChart fx:id="chartDisplay" layoutX="50.0">
         <xAxis>
-          <CategoryAxis side="BOTTOM" />
+          <NumberAxis fx:id="xAx" side="BOTTOM" />
         </xAxis>
         <yAxis>
-          <NumberAxis side="LEFT" />
+          <NumberAxis fx:id="yAx" side="LEFT" />
         </yAxis>
-      </LineChart>
+      </AreaChart>
    </children>
 </AnchorPane>

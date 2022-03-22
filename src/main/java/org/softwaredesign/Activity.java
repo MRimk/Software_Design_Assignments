@@ -28,7 +28,6 @@ public class Activity {
         for(Metric metric : metricsList){
             metricsText.append(metric.display(gpx));
             metricsText.append("\n");
-            System.out.println(metric.getMetricName());
             updateGoals(metric);
         }
         return metricsText.toString();
