@@ -1,7 +1,5 @@
 package org.softwaredesign;
 
-import org.softwaredesign.enumerators.Sport;
-
 public class Goal {
     private final String metric;
     private final String sport;

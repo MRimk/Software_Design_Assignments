@@ -29,7 +29,7 @@ public class VisualiseGoalsScene {
         Double target = newGoal.getTarget();
         Double progress = (double) Math.round(newGoal.getProgress());
 
-        progress = (progress > target) ? target : progress;
+        progress = (newGoal.isCompleted()) ? target : progress;
 
         sportColumn.get(index).setText(newGoal.getSport());
         metricColumn.get(index).setText(newGoal.getMetric());
