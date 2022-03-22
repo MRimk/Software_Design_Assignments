@@ -6,7 +6,6 @@ import org.softwaredesign.enumerators.Sport;
 import org.softwaredesign.helpers.SportToMetricsHelper;
 import org.softwaredesign.helpers.StringToSportHelper;
 import org.softwaredesign.metrics.Metric;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +28,7 @@ public class Activity {
         for(Metric metric : metricsList){
             metricsText.append(metric.display(gpx));
             metricsText.append("\n");
+            System.out.println(metric.getMetricName());
             updateGoals(metric);
         }
         return metricsText.toString();

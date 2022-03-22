@@ -22,7 +22,7 @@
             <SeparatorMenuItem mnemonicParsing="false" />
           <MenuItem fx:id="Swimming" mnemonicParsing="false" onAction="#sportInput" text="Swimming" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem fx:id="cycling" mnemonicParsing="false" onAction="#sportInput" text="Cycling" />
+            <MenuItem fx:id="Cycling" mnemonicParsing="false" onAction="#sportInput" text="Cycling" />
         </items>
          <font>
             <Font name="Segoe UI Black" size="12.0" />

@@ -12,9 +12,14 @@ public class VisualiseActivityScene {
 
     public void initialize() {
         output.setText(GUI.getActivity().displayMetrics());
+
     }
 
     public void backToMainMenu() throws IOException {
         GUI.switchScene("scenes/MainMenu.fxml");
+    }
+
+    public void checkChart() throws IOException {
+        GUI.switchScene("scenes/VisualiseChart.fxml");
     }
 }
