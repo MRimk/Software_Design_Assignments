@@ -12,7 +12,7 @@ public class CaloriesBurnt extends Metric{
 
     @Override
     public String display(GPX gpx){
-        return "Calories Burnt: " +  calculateMetricTotal(gpx).intValue() + " Cal";
+        return "Calories Burnt: " +  calculateMetricTotal(gpx).intValue() + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -40,5 +40,9 @@ public class CaloriesBurnt extends Metric{
     @Override
     public String getMetricName(){
         return "Calories Burnt";
+    }
+    @Override
+    public String getMetricUnits(){
+        return " Cal";
     }
 }

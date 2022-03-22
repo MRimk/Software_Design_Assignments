@@ -20,7 +20,7 @@ public class Power extends Metric{
 
     @Override
     public String display(GPX gpx){
-        return "Average Power: " +  calculateMetricTotal(gpx).intValue() + " W";
+        return "Average Power: " +  calculateMetricTotal(gpx).intValue() + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -69,5 +69,9 @@ public class Power extends Metric{
     @Override
     public String getMetricName(){
         return "Power";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "W";
     }
 }

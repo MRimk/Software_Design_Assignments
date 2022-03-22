@@ -11,7 +11,7 @@ public class HeartRate extends Metric{
 
     @Override
     public String display(GPX gpx){
-        return "Average Heart Rate: " +  calculateMetricTotal(gpx).intValue() + " bpm";
+        return "Average Heart Rate: " +  calculateMetricTotal(gpx).intValue() + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -49,5 +49,9 @@ public class HeartRate extends Metric{
     @Override
     public String getMetricName(){
         return "Heart Rate";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "bpm";
     }
 }

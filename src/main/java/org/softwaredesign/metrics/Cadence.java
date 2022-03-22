@@ -12,7 +12,7 @@ public class Cadence extends Metric{    //TODO: make class singleton
 
     @Override
     public String display(GPX gpx){
-        return "Average Cadence: " +  calculateMetricTotal(gpx).intValue() + " spm";
+        return "Average Cadence: " +  calculateMetricTotal(gpx).intValue() + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -47,9 +47,12 @@ public class Cadence extends Metric{    //TODO: make class singleton
     public boolean isUsedInGoals(){
         return false;
     }
-
     @Override
     public String getMetricName(){
         return "Cadence";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "spm";
     }
 }

@@ -13,7 +13,7 @@ public class StrokeLength extends Metric {
 
     @Override
     public String display(GPX gpx){
-        return "Average Stroke Length: " +  BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " m";
+        return "Average Stroke Length: " +  BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -51,5 +51,9 @@ public class StrokeLength extends Metric {
     @Override
     public String getMetricName(){
         return "Stroke Length";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "m";
     }
 }

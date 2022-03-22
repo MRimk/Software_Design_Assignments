@@ -13,7 +13,7 @@ public class Distance extends Metric{
 
     @Override
     public String display(GPX gpx){
-        return "Total Distance: " + BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " km";
+        return "Total Distance: " + BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -57,5 +57,9 @@ public class Distance extends Metric{
     @Override
     public String getMetricName(){
         return "Distance";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "km";
     }
 }

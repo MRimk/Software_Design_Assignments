@@ -12,7 +12,7 @@ public class Speed extends Metric{
 
     @Override
     public String display(GPX gpx){
-        return "Average Speed: " + BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " km/h";
+        return "Average Speed: " + BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -54,5 +54,9 @@ public class Speed extends Metric{
     @Override
     public String getMetricName(){
         return "Speed";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "km/h";
     }
 }

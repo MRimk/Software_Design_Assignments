@@ -12,7 +12,7 @@ public class Elevation extends Metric{
 
     @Override
     public String display(GPX gpx){
-        return "Total Elevation Gain: " + calculateMetricTotal(gpx).intValue() + " m";
+        return "Total Elevation Gain: " + calculateMetricTotal(gpx).intValue() + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -52,5 +52,9 @@ public class Elevation extends Metric{
     @Override
     public String getMetricName(){
         return "Elevation Gain";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "m";
     }
 }

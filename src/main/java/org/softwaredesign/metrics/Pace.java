@@ -16,7 +16,7 @@ public class Pace extends Metric{
         int seconds = (int)allSeconds;
         String returnText = "Average Pace: " + minutes + ":";
         String secondsString = (seconds < 10) ? "0" + seconds : "" + seconds;
-        return returnText + secondsString + " min/km";
+        return returnText + secondsString + " " + getMetricUnits();
     }
 
     @Override
@@ -52,5 +52,9 @@ public class Pace extends Metric{
     @Override
     public String getMetricName(){
         return "Pace";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "min/km";
     }
 }

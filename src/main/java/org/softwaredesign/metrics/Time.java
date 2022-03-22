@@ -57,4 +57,8 @@ public class Time extends Metric {
     public String getMetricName(){
         return "Time";
     }
+    @Override
+    public String getMetricUnits(){
+        return "";
+    }
 }
