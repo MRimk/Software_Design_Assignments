@@ -5,10 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.chart.LineChart;
 import javafx.stage.Stage;
-import org.softwaredesign.enumerators.Sport;
-import org.softwaredesign.metrics.Elevation;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -35,15 +32,25 @@ public class GUI extends Application {
     }
 
     public static void switchScene(String fxml) throws IOException {
-        Parent pane = loadScene(fxml);
-        Scene scene = new Scene(pane);
-        scene.getStylesheets().add(Objects.requireNonNull(GUI.class.getResource("scenes/style.css")).toExternalForm());
-        stage.setScene(scene);
+        stage.setScene(getScene(fxml));
+    }
+
+    public static void switchSceneInNewWindow(String fxml) throws IOException {
+        Stage newStage = new Stage();
+        newStage.setScene(getScene(fxml));
+        newStage.show();
     }
 
     private static Parent loadScene(String fxml) throws IOException {
         FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(GUI.class.getResource(fxml)));
         return loader.load();
+    }
+
+    private static Scene getScene(String fxml) throws IOException {
+        Parent pane = loadScene(fxml);
+        Scene scene = new Scene(pane);
+        scene.getStylesheets().add(Objects.requireNonNull(GUI.class.getResource("scenes/style.css")).toExternalForm());
+        return scene;
     }
 
     private String chooseStartScene() {

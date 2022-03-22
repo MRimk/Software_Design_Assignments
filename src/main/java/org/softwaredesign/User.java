@@ -46,15 +46,12 @@ public class User {
     public void updateGoal(Double progress, Integer index) {
         goalList.get(index).calculateProgress(progress);
     }
-
     public Integer getNumGoals() {
         return goalList.size();
     }
-
     public List<Goal> getGoalList() {
         return goalList;
     }
-
     public Double getWeight(){
         return weight;
     }

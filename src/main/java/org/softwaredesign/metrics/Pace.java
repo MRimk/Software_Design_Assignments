@@ -43,7 +43,7 @@ public class Pace extends Metric{
 
     @Override
     public boolean isChartable(){
-        return true;
+        return false;
     }
     @Override
     public boolean isUsedInGoals(){

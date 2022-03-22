@@ -62,4 +62,6 @@ public class Activity {
     }
 
     public GPX getGpx(){return gpx;}
+
+    public Sport getSport(){return sport;}
 }

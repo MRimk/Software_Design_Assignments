@@ -2,21 +2,23 @@ package org.softwaredesign.scenecontrollers;
 
 import javafx.fxml.FXML;
 import javafx.scene.chart.AreaChart;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.ChoiceBox;
 import org.softwaredesign.GUI;
+import org.softwaredesign.helpers.SportToMetricsHelper;
 import org.softwaredesign.metrics.Distance;
-import org.softwaredesign.metrics.Elevation;
 import org.softwaredesign.metrics.Metric;
-import org.softwaredesign.metrics.Speed;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
-public class VisualiseChartScene {
+public class VisualiseChartsScene {
+    List<Metric> sportMetrics = List.of(SportToMetricsHelper.getSportMetrics(GUI.getActivity().getSport()));
 
-    private final Metric metric = new Speed();
-    
+    @FXML
+    ChoiceBox<String> chartChoice = new ChoiceBox<>();
     @FXML
     NumberAxis xAx;
     @FXML
@@ -25,6 +27,20 @@ public class VisualiseChartScene {
     AreaChart<Number, Number> chartDisplay;
 
     public void initialize() {
+        chartChoice.setValue("Choose Metric");
+
+        for (Metric metric : sportMetrics) {
+            if (metric.isChartable()) chartChoice.getItems().add(metric.getMetricName());
+        }
+
+        chartChoice.setOnAction(event -> {
+            initializeChart();
+        });
+    }
+
+    private void initializeChart() {
+        Metric metric = stringToMetric(chartChoice.getValue());
+
         ArrayList<Double> dataPoints = new ArrayList<>(metric.calculateDataPoints(GUI.getActivity().getGpx()));
         Distance distanceCalculator = new Distance();
         ArrayList<Double> coveredDistancePoints = distanceCalculator.coveredDistancePoints(GUI.getActivity().getGpx());
@@ -38,16 +54,20 @@ public class VisualiseChartScene {
             dataSeries.getData().add(new XYChart.Data<>(coveredDistancePoints.get(i), dataPoints.get(i)));
         }
 
+        chartDisplay.getData().clear();
         chartDisplay.getData().add(dataSeries);
         chartDisplay.setTitle(metric.getMetricName() + " Graph");
         chartDisplay.setCreateSymbols(false);
     }
 
-    public Metric getMetric() {
-        return metric;
+    private String getLabelName(Metric labelMetric) {
+        return labelMetric.getMetricName() + " (" + labelMetric.getMetricUnits() + ")";
     }
 
-    private String getLabelName(Metric labelMetric){
-        return labelMetric.getMetricName() + " (" + labelMetric.getMetricUnits() + ")";
+    private Metric stringToMetric(String string) {
+        for (Metric metric : sportMetrics) {
+            if (Objects.equals(metric.getMetricName(), string)) return metric;
+        }
+        return sportMetrics.get(0);
     }
 }

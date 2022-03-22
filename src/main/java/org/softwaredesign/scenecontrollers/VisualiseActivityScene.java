@@ -19,7 +19,7 @@ public class VisualiseActivityScene {
         GUI.switchScene("scenes/MainMenu.fxml");
     }
 
-    public void checkChart() throws IOException {
-        GUI.switchScene("scenes/VisualiseChart.fxml");
+    public void visualiseCharts() throws IOException {
+        GUI.switchSceneInNewWindow("scenes/VisualiseCharts.fxml");
     }
 }

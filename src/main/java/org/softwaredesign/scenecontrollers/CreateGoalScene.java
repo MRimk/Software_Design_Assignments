@@ -6,18 +6,23 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.softwaredesign.GUI;
 import org.softwaredesign.Goal;
+import org.softwaredesign.enumerators.Sport;
+import org.softwaredesign.helpers.SportToMetricsHelper;
+import org.softwaredesign.helpers.StringToSportHelper;
+import org.softwaredesign.metrics.Metric;
 ;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 
 public class CreateGoalScene {
     @FXML
     ChoiceBox<String> sportChoice = new ChoiceBox<>();
     @FXML
-    Label sportError;
-    @FXML
     ChoiceBox<String> metricChoice = new ChoiceBox<>();
+    @FXML
+    Label sportError;
     @FXML
     Label metricError;
     @FXML
@@ -40,6 +45,19 @@ public class CreateGoalScene {
             GUI.getUser().addGoal(new Goal(sportChoice.getValue(), Double.parseDouble(target.getText()), metricChoice.getValue()));
             GUI.getUser().saveUserData();
             backToGoals();
+        }
+    }
+
+    private void updateMetricChoice() {
+        metricChoice.setValue("Metric");
+
+        metricChoice.getItems().clear();
+
+        Sport sport = StringToSportHelper.getSport(sportChoice.getValue());
+        List<Metric> metricList = List.of(SportToMetricsHelper.getSportMetrics(sport));
+
+        for (Metric metric : metricList) {
+           if (metric.isUsedInGoals()) metricChoice.getItems().add(metric.getMetricName());
         }
     }
 
@@ -85,19 +103,6 @@ public class CreateGoalScene {
         }
 
         return true;
-    }
-
-    private void updateMetricChoice() {
-        metricChoice.setValue("Metric");
-        if (Objects.equals(sportChoice.getValue(), "Running")) {
-            metricChoice.getItems().setAll("Distance", "Calories Burnt", "Elevation", "Time");
-        }
-        else if (Objects.equals(sportChoice.getValue(), "Swimming")) {
-            metricChoice.getItems().setAll("Distance", "Calories Burnt", "Time");
-        }
-        else if (Objects.equals(sportChoice.getValue(), "Cycling")) {
-            metricChoice.getItems().setAll("Distance", "Calories Burnt", "Time");
-        }
     }
 
     public void backToGoals() throws IOException {

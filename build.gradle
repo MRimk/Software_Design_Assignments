@@ -27,3 +27,9 @@ jlink {
         name = 'Software_Design_Assignments'
     }
 }
+
+tasks.named('jar') {
+    manifest {
+        attributes('Automatic-Module-Name': 'org.jxmapviewer')
+    }
+}
