@@ -10,8 +10,13 @@
             <Font name="Segoe UI Black" size="24.0" />
          </font></Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="25.0" prefWidth="103.0" text="BACK" />
-   <Button layoutX="291.0" layoutY="439.0" mnemonicParsing="false" onAction="#visualiseCharts" prefHeight="39.0" prefWidth="157.0" text="Visualise Charts">
+   <Button layoutX="165.0" layoutY="439.0" mnemonicParsing="false" onAction="#visualiseCharts" prefHeight="39.0" prefWidth="157.0" text="Visualise Charts">
       <font>
          <Font size="18.0" />
       </font></Button>
+   <Button layoutX="418.0" layoutY="439.0" mnemonicParsing="false" onAction="#viewMap" prefHeight="39.0" prefWidth="157.0" text="Map">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
 </AnchorPane>

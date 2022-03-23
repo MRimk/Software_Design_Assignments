@@ -2,6 +2,7 @@ package org.softwaredesign;
 
 import io.jenetics.jpx.GPX;
 import io.jenetics.jpx.WayPoint;
+import org.jxmapviewer.viewer.GeoPosition;
 import org.softwaredesign.enumerators.Sport;
 import org.softwaredesign.helpers.SportToMetricsHelper;
 import org.softwaredesign.helpers.StringToSportHelper;
@@ -49,14 +50,13 @@ public class Activity {
         GUI.getUser().saveUserData();
     }
 
-    public List<List<Double>> getCoordinates(){
+    public List<GeoPosition> getGeoPositions(){
         List<WayPoint> waypoints = SportToMetricsHelper.getSportMetrics(sport)[0].getWaypoints(gpx);
-        List<List<Double>> coords = new ArrayList<>();
-        List<Double> coordinate = new ArrayList<>();
+        List<GeoPosition> coords = new ArrayList<>();
+        GeoPosition geoPosition;
         for(WayPoint point : waypoints){
-            coordinate.add(point.getLatitude().doubleValue());
-            coordinate.add(point.getLongitude().doubleValue());
-            coords.add(coordinate);
+            geoPosition = new GeoPosition(point.getLatitude().doubleValue(), point.getLongitude().doubleValue());
+            coords.add(geoPosition);
         }
         return coords;
     }
