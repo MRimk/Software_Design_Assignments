@@ -8,26 +8,19 @@ import java.awt.Rectangle;
 import java.awt.RenderingHints;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
+import java.util.Objects;
 import org.jxmapviewer.JXMapViewer;
 import org.jxmapviewer.viewer.GeoPosition;
 import org.jxmapviewer.painter.Painter;
 
-/**
- * Paints a route
- * @author Martin Steiger
- */
+
 public class RoutePainter implements Painter<JXMapViewer>
 {
-    private Color color = Color.RED;
-    private boolean antiAlias = true;
-
-    private List<GeoPosition> track;
+    private final List<GeoPosition> track;
 
     public RoutePainter(List<GeoPosition> track)
     {
-        // copy the list so that changes in the
-        // original list do not have an effect here
-        this.track = new ArrayList<GeoPosition>(track);
+        this.track = new ArrayList<>(track);
     }
 
     @Override
@@ -35,30 +28,43 @@ public class RoutePainter implements Painter<JXMapViewer>
     {
         g = (Graphics2D) g.create();
 
-        // convert from viewport to world bitmap
         Rectangle rect = map.getViewportBounds();
         g.translate(-rect.x, -rect.y);
 
-        if (antiAlias)
-            g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+        g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        // do the drawing
         g.setColor(Color.BLACK);
         g.setStroke(new BasicStroke(4));
 
-        drawRoute(g, map);
+        draw(g, map, null);
 
-        // do the drawing again
-        g.setColor(color);
+        g.setColor(Color.magenta);
         g.setStroke(new BasicStroke(2));
 
-        drawRoute(g, map);
+        draw(g, map, "Route");
+
+        g.setColor(Color.green);
+        g.setStroke(new BasicStroke(12));
+        draw(g, map, "Start");
+
+        g.setColor(Color.red);
+        g.setStroke(new BasicStroke(10));
+        draw(g, map, "End");
 
         g.dispose();
     }
 
-    private void drawRoute(Graphics2D g, JXMapViewer map)
+    private void draw(Graphics2D g, JXMapViewer map, String drawStage)
     {
+        if (!Objects.equals(drawStage, "Route")) {
+            int index = (Objects.equals(drawStage, "Start")) ? 0 : track.size() - 1;
+
+            Point2D point = map.getTileFactory().geoToPixel(track.get(index), map.getZoom());
+
+            g.drawOval((int) point.getX(), (int) point.getY(), 10, 10);
+            return;
+        }
+
         int lastX = 0;
         int lastY = 0;
 
@@ -66,7 +72,6 @@ public class RoutePainter implements Painter<JXMapViewer>
 
         for (GeoPosition gp : track)
         {
-            // convert geo-coordinate to world bitmap pixel
             Point2D pt = map.getTileFactory().geoToPixel(gp, map.getZoom());
 
             if (first)
