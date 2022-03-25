@@ -7,8 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Distance extends Metric{
-    public Distance(){
+    private Distance(){
         //do nothing because object is purely a calculator
+    }
+    public static Metric getInstance() {
+        if(instance == null || !instance.equals(new Distance()))
+            instance = new Distance();
+        return instance;
     }
 
     @Override
@@ -33,17 +38,6 @@ public class Distance extends Metric{
             totalDistance += point;
         }
         return totalDistance;
-    }
-
-    public ArrayList<Double> coveredDistancePoints(GPX gpx){
-        ArrayList<Double> distancePoints = calculateDataPoints(gpx);
-        double currentTotal = 0.0;
-        ArrayList<Double> resultList = new ArrayList<>();
-        for(Double point : distancePoints){
-            currentTotal += point;
-            resultList.add(currentTotal);
-        }
-        return resultList;
     }
 
     @Override

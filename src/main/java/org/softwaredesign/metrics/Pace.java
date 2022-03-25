@@ -2,10 +2,16 @@ package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pace extends Metric{
-    public Pace(){
+    private Pace(){
         //do nothing because object is purely a calculator
+    }
+    public static Metric getInstance() {
+        if(instance == null || !instance.equals(new Pace()))
+            instance = new Pace();
+        return instance;
     }
 
     @Override
@@ -21,8 +27,8 @@ public class Pace extends Metric{
 
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
-        Speed speedCalculator = new Speed();
-        ArrayList<Double> speedPoints = speedCalculator.calculateDataPoints(gpx);
+        Metric speedCalculator = Speed.getInstance();
+        List<Double> speedPoints = speedCalculator.calculateDataPoints(gpx);
         ArrayList<Double> pacePoints = new ArrayList<>();
         for(Double point : speedPoints){
             pacePoints.add(1 / point);
@@ -36,8 +42,8 @@ public class Pace extends Metric{
 
     @Override
     public Double calculateMetricTotal(GPX gpx) {
-        Time timeCalculator = new Time();
-        Distance distanceCalculator = new Distance();
+        Metric timeCalculator = Time.getInstance();
+        Metric distanceCalculator = Distance.getInstance();
         return timeToMinutes(timeCalculator.calculateMetricTotal(gpx))/distanceCalculator.calculateMetricTotal(gpx);
     }
 

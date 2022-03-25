@@ -42,8 +42,8 @@ public class VisualiseChartsScene {
         Metric metric = stringToMetric(chartChoice.getValue());
 
         ArrayList<Double> dataPoints = new ArrayList<>(metric.calculateDataPoints(GUI.getActivity().getGpx()));
-        Distance distanceCalculator = new Distance();
-        ArrayList<Double> coveredDistancePoints = distanceCalculator.coveredDistancePoints(GUI.getActivity().getGpx());
+        Metric distanceCalculator = Distance.getInstance();
+        ArrayList<Double> coveredDistancePoints = toCoveredDistance(distanceCalculator.calculateDataPoints(GUI.getActivity().getGpx()));
 
         xAx.setLabel(getLabelName(distanceCalculator));
         yAx.setLabel(getLabelName(metric));
@@ -69,5 +69,15 @@ public class VisualiseChartsScene {
             if (Objects.equals(metric.getMetricName(), string)) return metric;
         }
         return sportMetrics.get(0);
+    }
+
+    private ArrayList<Double> toCoveredDistance(List<Double> distancePoints){
+        double currentTotal = 0.0;
+        ArrayList<Double> resultList = new ArrayList<>();
+        for(Double point : distancePoints){
+            currentTotal += point;
+            resultList.add(currentTotal);
+        }
+        return resultList;
     }
 }

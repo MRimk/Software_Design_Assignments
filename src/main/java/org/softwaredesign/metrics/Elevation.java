@@ -6,13 +6,20 @@ import java.util.List;
 import java.util.Optional;
 
 public class Elevation extends Metric{
-    public Elevation(){
+    private Elevation(){
         //do nothing because object is purely a calculator
+    }
+    public static Metric getInstance() {
+        if(instance == null || !instance.equals(new Elevation()))
+            instance = new Elevation();
+        return instance;
     }
 
     @Override
     public String display(GPX gpx){
-        return "Total Elevation Gain: " + calculateMetricTotal(gpx).intValue() + " " + getMetricUnits();
+        double value = calculateMetricTotal(gpx).intValue();
+        if(value == Integer.MAX_VALUE) return "Elevation N/A";
+        return "Total Elevation Gain: " + value + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -21,20 +28,31 @@ public class Elevation extends Metric{
         double elevGain;
         Optional<Length> optionalElevation;
         Optional<Length> previousOptionalElevation = waypoints.get(0).getElevation();
-        for(WayPoint point : waypoints){
-            optionalElevation = point.getElevation();
-            if(optionalElevation.isPresent() && previousOptionalElevation.isPresent()) {
-                elevGain = optionalElevation.get().to(Length.Unit.METER) - previousOptionalElevation.get().to(Length.Unit.METER);
-                elevationPoints.add(elevGain);
-                previousOptionalElevation = optionalElevation;
+        try{
+            for(WayPoint point : waypoints){
+                optionalElevation = point.getElevation();
+                if(optionalElevation.isPresent() && previousOptionalElevation.isPresent()) {
+                    elevGain = optionalElevation.get().to(Length.Unit.METER) - previousOptionalElevation.get().to(Length.Unit.METER);
+                    elevationPoints.add(elevGain);
+                    previousOptionalElevation = optionalElevation;
+                }
+                else {
+                    elevationPoints = new ArrayList<>();
+                    throw new NoSuchFieldException();
+                }
             }
+        }
+        catch (NoSuchFieldException exception){
+            System.err.println("Elevation data corrupted");
         }
         return elevationPoints;
     }
     @Override
     public Double calculateMetricTotal(GPX gpx) {
         double totalElevation = 0.0;
-        for(double point : calculateDataPoints(gpx)){
+        List<Double> allPoints = calculateDataPoints(gpx);
+        if(allPoints.isEmpty()) return (double)Integer.MAX_VALUE;
+        for(double point : allPoints){
             if(point > 0)
                 totalElevation += point;
         }

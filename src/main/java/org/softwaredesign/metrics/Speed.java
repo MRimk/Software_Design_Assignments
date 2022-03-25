@@ -4,10 +4,17 @@ import io.jenetics.jpx.GPX;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Speed extends Metric{
-    public Speed(){
+    private Speed(){
         //do nothing because object is purely a calculator
+    }
+
+    public static Metric getInstance() {
+        if(instance == null || !instance.equals(new Speed()))
+            instance = new Speed();
+        return instance;
     }
 
     @Override
@@ -16,10 +23,10 @@ public class Speed extends Metric{
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
-        Time timeCalculator = new Time();
-        Distance distanceCalculator = new Distance();
+        Metric timeCalculator = Time.getInstance();
+        Metric distanceCalculator = Distance.getInstance();
         ArrayList<Double> timePoints = timeToIntervals(timeCalculator.calculateDataPoints(gpx));
-        ArrayList<Double> distancePoints = distanceCalculator.calculateDataPoints(gpx);
+        List<Double> distancePoints = distanceCalculator.calculateDataPoints(gpx);
         ArrayList<Double> speedPoints = new ArrayList<>();
         for(int i = 1; i < distancePoints.size(); i++){
             speedPoints.add(distancePoints.get(i)/timePoints.get(i));
@@ -27,7 +34,7 @@ public class Speed extends Metric{
         return speedPoints;
     }
 
-    private ArrayList<Double> timeToIntervals(ArrayList<Double> time) {
+    private ArrayList<Double> timeToIntervals(List<Double> time) {
         ArrayList<Double> timeGaps = new ArrayList<>();
         Double previousTime = time.get(0);
         for(Double timePoint : time){
@@ -39,8 +46,8 @@ public class Speed extends Metric{
 
     @Override
     public Double calculateMetricTotal(GPX gpx) {
-        Time timeCalculator = new Time();
-        Distance distanceCalculator = new Distance();
+        Metric timeCalculator = Time.getInstance();
+        Metric distanceCalculator = Distance.getInstance();
         return distanceCalculator.calculateMetricTotal(gpx)/timeCalculator.calculateMetricTotal(gpx);
     }
     @Override

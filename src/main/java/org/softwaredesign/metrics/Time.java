@@ -9,9 +9,17 @@ import java.util.Optional;
 
 
 public class Time extends Metric {
-    public Time(){
+    private Time(){
         //do nothing because object is purely a calculator
     }
+
+
+    public static Metric getInstance() {
+        if(instance == null || !instance.equals(new Time()))
+            instance = new Time();
+        return instance;
+    }
+
     @Override
     public String display(GPX gpx){
         String time = "Elapsed Time: ";

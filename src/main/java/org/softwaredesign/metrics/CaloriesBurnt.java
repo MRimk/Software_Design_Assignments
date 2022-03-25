@@ -6,8 +6,13 @@ import org.softwaredesign.GUI;
 import java.util.ArrayList;
 
 public class CaloriesBurnt extends Metric{
-    public CaloriesBurnt(){
+    private CaloriesBurnt(){
         //do nothing because object is purely a calculator
+    }
+    public static Metric getInstance() {
+        if(instance == null || !instance.equals(new CaloriesBurnt()))
+            instance = new CaloriesBurnt();
+        return instance;
     }
 
     @Override
@@ -22,7 +27,7 @@ public class CaloriesBurnt extends Metric{
     }
     @Override
     public Double calculateMetricTotal(GPX gpx) {
-        Time timeCalculator = new Time();
+        Metric timeCalculator = Time.getInstance();
         double totalTimeInMinutes = timeCalculator.calculateMetricTotal(gpx) * 60;
         double met = 8;                       //data taken from https://metscalculator.com/
         double userWeight = GUI.getUser().getWeight();

@@ -41,10 +41,8 @@ public class Activity {
         for (int i = 0; i < numGoals; i++) {
             Goal currentGoal = goalList.get(i);
             Sport goalSport = StringToSportHelper.getSport(currentGoal.getSport());
-            if (goalSport.equals(sport)) {
-                if (currentGoal.getMetric().equals(metric.getMetricName())) {
-                    GUI.getUser().updateGoal(metric.calculateMetricTotal(gpx), i);
-                }
+            if (goalSport.equals(sport) && currentGoal.getMetric().equals(metric.getMetricName())) {
+                GUI.getUser().updateGoal(metric.calculateMetricTotal(gpx), i);
             }
         }
         GUI.getUser().saveUserData();
