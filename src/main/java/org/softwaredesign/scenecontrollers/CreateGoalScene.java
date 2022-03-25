@@ -13,6 +13,7 @@ import org.softwaredesign.metrics.Metric;
 ;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -33,8 +34,11 @@ public class CreateGoalScene {
     public void initialize() {
         sportChoice.setValue("Sport");
         metricChoice.setValue("Metric");
-        sportChoice.getItems().addAll("Running", "Cycling", "Swimming");
-
+        ArrayList<String> sportNames = new ArrayList<>();
+        for(Sport sport : Sport.values()){
+            sportNames.add(sport.toString());
+        }
+        sportChoice.getItems().addAll(sportNames);
         sportChoice.setOnAction(event -> {
             updateMetricChoice();
         });
