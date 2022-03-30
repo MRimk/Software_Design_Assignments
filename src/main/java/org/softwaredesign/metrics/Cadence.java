@@ -8,13 +8,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cadence extends Metric{
+    static Metric cadenceInstance = null;
+
+
     private Cadence(){
         //do nothing because object is purely a calculator
     }
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new Cadence()))
-            instance = new Cadence();
-        return instance;
+        if(cadenceInstance == null)
+            cadenceInstance = new Cadence();
+        return cadenceInstance;
     }
 
     @Override

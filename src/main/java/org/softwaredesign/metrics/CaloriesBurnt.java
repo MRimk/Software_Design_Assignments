@@ -6,13 +6,15 @@ import org.softwaredesign.GUI;
 import java.util.ArrayList;
 
 public class CaloriesBurnt extends Metric{
+    static Metric caloriesInstance = null;
+
     private CaloriesBurnt(){
         //do nothing because object is purely a calculator
     }
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new CaloriesBurnt()))
-            instance = new CaloriesBurnt();
-        return instance;
+        if(caloriesInstance == null)
+            caloriesInstance = new CaloriesBurnt();
+        return caloriesInstance;
     }
 
     @Override

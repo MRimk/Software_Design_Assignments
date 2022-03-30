@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Distance extends Metric{
+    static Metric distanceInstance = null;
+
     private Distance(){
         //do nothing because object is purely a calculator
     }
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new Distance()))
-            instance = new Distance();
-        return instance;
+        if(distanceInstance == null)
+            distanceInstance = new Distance();
+        return distanceInstance;
     }
 
     @Override

@@ -7,14 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Speed extends Metric{
+    static Metric speedInstance = null;
+
     private Speed(){
         //do nothing because object is purely a calculator
     }
 
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new Speed()))
-            instance = new Speed();
-        return instance;
+        if(speedInstance == null)
+            speedInstance = new Speed();
+        return speedInstance;
     }
 
     @Override

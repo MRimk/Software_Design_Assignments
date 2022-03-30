@@ -9,15 +9,17 @@ import java.util.Optional;
 
 
 public class Time extends Metric {
+    static Metric timeInstance = null;
+
     private Time(){
         //do nothing because object is purely a calculator
     }
 
 
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new Time()))
-            instance = new Time();
-        return instance;
+        if(timeInstance == null)
+            timeInstance = new Time();
+        return timeInstance;
     }
 
     @Override

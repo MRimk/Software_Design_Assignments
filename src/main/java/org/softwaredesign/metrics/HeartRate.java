@@ -7,14 +7,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HeartRate extends Metric{
+    static Metric heartRateInstance = null;
+
     private HeartRate(){
         //do nothing because object is purely a calculator
     }
 
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new HeartRate()))
-            instance = new HeartRate();
-        return instance;
+        if(heartRateInstance == null)
+            heartRateInstance = new HeartRate();
+        return heartRateInstance;
     }
 
     @Override

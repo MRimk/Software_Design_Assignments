@@ -7,13 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Power extends Metric{
+    static Metric powerInstance = null;
+
     private Power(){
         //do nothing because object is purely a calculator
     }
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new Power()))
-            instance = new Power();
-        return instance;
+        if(powerInstance == null)
+            powerInstance = new Power();
+        return powerInstance;
     }
 
     private static final double DRIVETRAIN_LOSS = 0.09;

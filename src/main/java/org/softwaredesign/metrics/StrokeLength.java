@@ -9,14 +9,16 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class StrokeLength extends Metric {
+    static Metric strokeInstance = null;
+
     private StrokeLength(){
         //do nothing because object is purely a calculator
     }
 
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new StrokeLength()))
-            instance = new StrokeLength();
-        return instance;
+        if(strokeInstance == null)
+            strokeInstance = new StrokeLength();
+        return strokeInstance;
     }
     @Override
     public String display(GPX gpx){

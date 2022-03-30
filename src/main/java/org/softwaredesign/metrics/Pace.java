@@ -5,13 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Pace extends Metric{
+    static Metric paceInstance = null;
+
     private Pace(){
         //do nothing because object is purely a calculator
     }
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new Pace()))
-            instance = new Pace();
-        return instance;
+        if(paceInstance == null)
+            paceInstance = new Pace();
+        return paceInstance;
     }
 
     @Override

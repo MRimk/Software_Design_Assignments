@@ -6,13 +6,15 @@ import java.util.List;
 import java.util.Optional;
 
 public class Elevation extends Metric{
+    static Metric elevationInstance = null;
+
     private Elevation(){
         //do nothing because object is purely a calculator
     }
     public static Metric getInstance() {
-        if(instance == null || !instance.equals(new Elevation()))
-            instance = new Elevation();
-        return instance;
+        if(elevationInstance == null)
+            elevationInstance = new Elevation();
+        return elevationInstance;
     }
 
     @Override

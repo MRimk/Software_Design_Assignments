@@ -22,7 +22,8 @@ public final class SportToMetricsHelper {
                     CaloriesBurnt.getInstance()}),
             entry(Sport.CYCLING, new Metric[]{
                     Distance.getInstance(),
-                    Time.getInstance(), Speed.getInstance(),
+                    Time.getInstance(),
+                    Speed.getInstance(),
                     HeartRate.getInstance(),
                     Power.getInstance(),
                     CaloriesBurnt.getInstance()}),
