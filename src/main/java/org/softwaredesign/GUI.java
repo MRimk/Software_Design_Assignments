@@ -6,11 +6,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.Objects;
-
+import java.util.Base64;
 
 public class GUI extends Application {
     private static Stage stage;
@@ -61,9 +61,14 @@ public class GUI extends Application {
         }
     }
 
-    private static void setUserFromFile() throws FileNotFoundException {
+    private static void setUserFromFile() throws IOException {
         Gson gson = new Gson();
-        user = gson.fromJson(new FileReader("src/main/resources/user_data"), User.class);
+
+        Path fileName = Path.of("src/main/resources/user_data");
+        String encodedData = Files.readString(fileName);
+        byte[] decodedData = Base64.getDecoder().decode(encodedData.getBytes());
+
+        user = gson.fromJson(new String(decodedData), User.class);
     }
 
     public static void setUserFromScene(User newUser){

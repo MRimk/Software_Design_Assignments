@@ -3,6 +3,7 @@ package org.softwaredesign;
 import com.google.gson.Gson;
 import org.softwaredesign.enumerators.Gender;
 import java.io.*;
+import java.util.Base64;
 import java.util.List;
 
 public class User {
@@ -26,7 +27,9 @@ public class User {
         Gson gson = new Gson();
         try {
             FileWriter writer = new FileWriter("src/main/resources/user_data", false);
-            writer.write(gson.toJson(this));
+            String data = gson.toJson(this);
+            byte[] encodedData = Base64.getEncoder().encode(data.getBytes());
+            writer.write(new String(encodedData));
             writer.close();
         } catch (IOException e) {
             System.out.println("Cant save user");
