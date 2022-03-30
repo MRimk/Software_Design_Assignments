@@ -15,18 +15,28 @@ public class MainMenuScene {
     private void initActivity(Sport sport) throws IOException {
         String gpxPath = getGPXPath();
 
-        GUI.setActivity(new Activity(gpxPath, sport));
+        if (gpxPath != null) {
+            GUI.setActivity(new Activity(gpxPath, sport));
+        }
+        else {
+            return;
+        }
 
         GUI.switchScene("scenes/VisualiseActivity.fxml");
     }
 
     private String getGPXPath() {
-        FileChooser fileChooser = new FileChooser();
-        FileChooser.ExtensionFilter extFilter =
-                new FileChooser.ExtensionFilter("GPX files (*.gpx)", "*.gpx");
-        fileChooser.getExtensionFilters().add(extFilter);
+        try {
+            FileChooser fileChooser = new FileChooser();
+            FileChooser.ExtensionFilter extFilter =
+                    new FileChooser.ExtensionFilter("GPX files (*.gpx)", "*.gpx");
+            fileChooser.getExtensionFilters().add(extFilter);
 
-        return fileChooser.showOpenDialog(GUI.getStage()).getAbsolutePath();
+            return fileChooser.showOpenDialog(GUI.getStage()).getAbsolutePath();
+        }
+        catch (NullPointerException e) {
+            return null;
+        }
     }
 
     public void sportInput(ActionEvent actionEvent) throws IOException {

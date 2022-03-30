@@ -13,8 +13,8 @@
       <GridPane layoutX="33.0" layoutY="85.0" prefHeight="30.0" prefWidth="436.0">
         <columnConstraints>
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="145.0" minWidth="10.0" prefWidth="145.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="104.0" minWidth="10.0" prefWidth="73.0" />
             <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
         <rowConstraints>
@@ -27,7 +27,7 @@
                </font></Label>
             <TextField fx:id="target" GridPane.columnIndex="3" />
             <ChoiceBox fx:id="sportChoice" prefWidth="80.0" />
-            <ChoiceBox fx:id="metricChoice" prefWidth="100.0" GridPane.columnIndex="1" />
+            <ChoiceBox fx:id="metricChoice" prefWidth="125.0" GridPane.columnIndex="1" />
          </children>
       </GridPane>
       <Label layoutX="159.0" layoutY="21.0" text="Input New Goal">

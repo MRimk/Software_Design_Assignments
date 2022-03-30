@@ -42,6 +42,9 @@ public class CreateGoalScene {
         sportChoice.setOnAction(event -> {
             updateMetricChoice();
         });
+        metricChoice.setOnAction(event -> {
+            updateMetricUnit();
+        });
     }
 
     public void createGoal() throws IOException {
@@ -62,6 +65,15 @@ public class CreateGoalScene {
 
         for (Metric metric : metricList) {
            if (metric.isUsedInGoals()) metricChoice.getItems().add(metric.getMetricName());
+        }
+    }
+
+    private void updateMetricUnit() {
+        Sport sport = StringToSportHelper.getSport(sportChoice.getValue());
+        List<Metric> metricList = List.of(SportToMetricsHelper.getSportMetrics(sport));
+
+        for (Metric metric : metricList) {
+            if (Objects.equals(metric.getMetricName(), metricChoice.getValue())) target.setPromptText(metric.getMetricUnits());;
         }
     }
 
