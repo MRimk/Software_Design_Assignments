@@ -61,7 +61,7 @@ public class Time extends Metric {
     }
     @Override
     public boolean isUsedInGoals(){
-        return false;
+        return true;
     }
     @Override
     public String getMetricName(){
@@ -69,6 +69,6 @@ public class Time extends Metric {
     }
     @Override
     public String getMetricUnits(){
-        return "";
+        return "h";
     }
 }
