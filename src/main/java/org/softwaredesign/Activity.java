@@ -15,7 +15,7 @@ import java.util.List;
 public class Activity {
     private final GPX gpx;
     private final Sport sport;
-    private final GoalUpdater goalUpdater = new GoalUpdater(this);
+
 
     public Activity(String gpxPath, Sport sport)
             throws IOException {
@@ -30,7 +30,7 @@ public class Activity {
         for(Metric metric : metricsList){
             metricsText.append(metric.display(gpx));
             metricsText.append("\n");
-            goalUpdater.update(metric);
+            notifyObserver(metric);
         }
         return metricsText.toString();
     }
@@ -46,6 +46,10 @@ public class Activity {
             coords.add(geoPosition);
         }
         return coords;
+    }
+
+    private void notifyObserver(Metric metric){
+        GUI.getGoalObserver().update(metric, this);
     }
 
     public GPX getGpx(){return gpx;}

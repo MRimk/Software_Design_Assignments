@@ -15,11 +15,11 @@ import java.util.List;
 
 
 public class VisualiseGoalsScene {
-    List<Label> sportColumn = new ArrayList<>();
-    List<Label> metricColumn = new ArrayList<>();
-    List<Label> trackerColumn = new ArrayList<>();
-    List<ProgressBar> progressColumn = new ArrayList<>();
-    List<Button> deleteColumn = new ArrayList<>();
+    private List<Label> sportColumn = new ArrayList<>();
+    private List<Label> metricColumn = new ArrayList<>();
+    private List<Label> trackerColumn = new ArrayList<>();
+    private List<ProgressBar> progressColumn = new ArrayList<>();
+    private List<Button> deleteColumn = new ArrayList<>();
 
     public void initialize(){
         initializeFXMLLists();
@@ -29,7 +29,7 @@ public class VisualiseGoalsScene {
         Double target = newGoal.getTarget();
         Double progress = (double) Math.round(newGoal.getProgress());
 
-        progress = (newGoal.isCompleted()) ? target : progress;
+        progress = Boolean.TRUE.equals((newGoal.isCompleted())) ? target : progress;
 
         sportColumn.get(index).setText(newGoal.getSport());
         metricColumn.get(index).setText(newGoal.getMetric());

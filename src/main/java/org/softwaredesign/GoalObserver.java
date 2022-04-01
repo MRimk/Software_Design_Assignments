@@ -7,20 +7,18 @@ import org.softwaredesign.metrics.Metric;
 
 import java.util.List;
 
-public class GoalUpdater {
-    private final Activity activityChecked;
-
-
-    public GoalUpdater(Activity activityChecked) {
-        this.activityChecked = activityChecked;
+public class GoalObserver implements Observer{
+    public GoalObserver() {
+        // this is empty because observer gets the data through the update() function
     }
 
-    public void update(Metric metric){
+    @Override
+    public void update(Metric metric, Activity activity){
         Integer numGoals = GUI.getUser().getNumGoals();
         List<Goal> goalList = GUI.getUser().getGoalList();
 
-        Sport sport = activityChecked.getSport();
-        GPX gpx = activityChecked.getGpx();
+        Sport sport = activity.getSport();
+        GPX gpx = activity.getGpx();
 
         for (int i = 0; i < numGoals; i++) {
             Goal currentGoal = goalList.get(i);

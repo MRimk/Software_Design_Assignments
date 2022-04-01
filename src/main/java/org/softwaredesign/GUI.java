@@ -16,6 +16,7 @@ public class GUI extends Application {
     private static Stage stage;
     private static User user;
     private static Activity activity;
+    private static final GoalObserver goalUpdater = new GoalObserver();
 
     @Override
     public void start(Stage startStage) throws Exception {
@@ -87,5 +88,6 @@ public class GUI extends Application {
     public static User getUser(){
         return user;
     }
+    public static GoalObserver getGoalObserver(){return goalUpdater;}
     public static void main(String[] args) { launch(args); }
 }
