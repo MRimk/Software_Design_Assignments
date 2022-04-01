@@ -26,6 +26,9 @@ public class VisualiseChartsScene {
     @FXML
     AreaChart<Number, Number> chartDisplay;
 
+    /**
+     * Instantiate all FXML objects in the scene
+     */
     public void initialize() {
         chartChoice.setValue("Choose Metric");
 
@@ -33,11 +36,13 @@ public class VisualiseChartsScene {
             if (metric.isChartable()) chartChoice.getItems().add(metric.getMetricName());
         }
 
-        chartChoice.setOnAction(event -> {
-            initializeChart();
-        });
+        chartChoice.setOnAction(event -> initializeChart());
     }
 
+    /**
+     * Get and show the metric data on a chart
+     * while initialising corresponding labeling and distance measurement as X axis
+     */
     private void initializeChart() {
         Metric metric = stringToMetric(chartChoice.getValue());
 
@@ -60,10 +65,24 @@ public class VisualiseChartsScene {
         chartDisplay.setCreateSymbols(false);
     }
 
+    /**
+     * Create an axis label for the given metric
+     * @param labelMetric
+     * Metric object representing the type of metric shown
+     * @return
+     * String of metric name together with unit type
+     */
     private String getLabelName(Metric labelMetric) {
         return labelMetric.getMetricName() + " (" + labelMetric.getMetricUnits() + ")";
     }
 
+    /**
+     * Get Metric object from the given metric name
+     * @param string
+     * String metric name, which is same as one of the metric name
+     * @return
+     * Metric object which has given name
+     */
     private Metric stringToMetric(String string) {
         for (Metric metric : sportMetrics) {
             if (Objects.equals(metric.getMetricName(), string)) return metric;
@@ -71,6 +90,13 @@ public class VisualiseChartsScene {
         return sportMetrics.get(0);
     }
 
+    /**
+     * Convert the distance points into covered distance for neat display of the progression of activity
+     * @param distancePoints
+     * Collection of points of distances between two GPX coordinates
+     * @return
+     * Collection of points showing gradual covered distance
+     */
     private ArrayList<Double> toCoveredDistance(List<Double> distancePoints){
         double currentTotal = 0.0;
         ArrayList<Double> resultList = new ArrayList<>();

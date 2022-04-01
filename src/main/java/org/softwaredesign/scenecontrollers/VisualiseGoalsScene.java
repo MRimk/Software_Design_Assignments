@@ -21,10 +21,21 @@ public class VisualiseGoalsScene {
     private List<ProgressBar> progressColumn = new ArrayList<>();
     private List<Button> deleteColumn = new ArrayList<>();
 
+    /**
+     * Instantiate all FXML objects in the scene
+     */
     public void initialize(){
         initializeFXMLLists();
         refreshGoals();
     }
+
+    /**
+     * Show a row of a newly tracked goal progress
+     * @param newGoal
+     * A new Goal object that is added to the display
+     * @param index
+     * Index of the new goal row
+     */
     public void displayGoalProgress(Goal newGoal, Integer index){
         Double target = newGoal.getTarget();
         Double progress = (double) Math.round(newGoal.getProgress());
@@ -45,6 +56,11 @@ public class VisualiseGoalsScene {
         deleteColumn = Arrays.asList(delete0, delete1, delete2, delete3, delete4);
     }
 
+    /**
+     * Function used to remove the goal from the existing goal list
+     * @param actionEvent
+     * Button click event with which the goal is deleted
+     */
     public void deleteGoal(ActionEvent actionEvent) {
         String deleteButton = ((Button) actionEvent.getSource()).getId();
         Integer index = Integer.parseInt(deleteButton.substring(deleteButton.length() - 1));
@@ -54,6 +70,9 @@ public class VisualiseGoalsScene {
         refreshGoals();
     }
 
+    /**
+     * Shows all existing goals
+     */
     private void refreshGoals() {
         int numGoals = GUI.getUser().getNumGoals();
         for (int i = 0; i < numGoals; i++) {
@@ -72,6 +91,11 @@ public class VisualiseGoalsScene {
         deleteColumn.get(index).setVisible(false);
     }
 
+    /**
+     * Switches to the create goal scene if there is space for more goals
+     * @throws IOException
+     * If the scene fxml file is not found, IOException is thrown
+     */
     public void createNewGoal() throws IOException {
         if (GUI.getUser().getNumGoals() < 5) {
             GUI.switchScene("scenes/CreateGoal.fxml");

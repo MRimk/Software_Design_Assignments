@@ -54,6 +54,15 @@ public class RoutePainter implements Painter<JXMapViewer>
         g.dispose();
     }
 
+    /**
+     * Creates the map image, and puts track points on the image to make up the path.
+     * @param g
+     * Graphics2D object used as canvas
+     * @param map
+     * JXMapViewer object that is used to get the snapshot of the activity location
+     * @param drawStage
+     * String representing what type of drawing needs to be done
+     */
     private void draw(Graphics2D g, JXMapViewer map, String drawStage)
     {
         if (!Objects.equals(drawStage, "Route")) {

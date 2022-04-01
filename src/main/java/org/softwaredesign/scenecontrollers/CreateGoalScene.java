@@ -31,6 +31,9 @@ public class CreateGoalScene {
     @FXML
     Label targetError;
 
+    /**
+     * Instantiate all FXML objects in the scene
+     */
     public void initialize() {
         sportChoice.setValue("Sport");
         metricChoice.setValue("Metric");
@@ -47,6 +50,11 @@ public class CreateGoalScene {
         });
     }
 
+    /**
+     * Creates a goal if the input data is valid
+     * @throws IOException
+     * If visualise goal scene file is not found, IOException is thrown
+     */
     public void createGoal() throws IOException {
         if (checkDataValidity()) {
             GUI.getUser().addGoal(new Goal(sportChoice.getValue(), Double.parseDouble(target.getText()), metricChoice.getValue()));
@@ -55,6 +63,9 @@ public class CreateGoalScene {
         }
     }
 
+    /**
+     * Fills the choice menu with the relevant metric options
+     */
     private void updateMetricChoice() {
         metricChoice.setValue("Metric");
 
@@ -68,6 +79,9 @@ public class CreateGoalScene {
         }
     }
 
+    /**
+     * Displays corresponding metric unit in the input text prompt
+     */
     private void updateMetricUnit() {
         Sport sport = StringToSportHelper.getSport(sportChoice.getValue());
         List<Metric> metricList = List.of(SportToMetricsHelper.getSportMetrics(sport));
@@ -77,6 +91,11 @@ public class CreateGoalScene {
         }
     }
 
+    /**
+     * Checks if the input data is valid for the goal
+     * @return
+     * True = data is valid
+     */
     private boolean checkDataValidity() {
         if (Objects.equals(sportChoice.getValue(), "Sport")) {
             sportError.setText("Choose sport");

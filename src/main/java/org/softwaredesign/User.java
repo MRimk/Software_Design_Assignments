@@ -23,6 +23,9 @@ public class User {
         this.goalList = goalList;
     }
 
+    /**
+     * Put the user object into an encoded JSON file
+     */
     public void saveUserData() {
         Gson gson = new Gson();
         try {
@@ -32,20 +35,37 @@ public class User {
             writer.write(new String(encodedData));
             writer.close();
         } catch (IOException e) {
-            System.out.println("Cant save user");
+            System.err.println("Cant save user");
         }
     }
 
+    /**
+     * Add a goal to the user goal list and save the user data to a file
+     * @param newGoal
+     * Goal object that is saved in the list
+     */
     public void addGoal(Goal newGoal) {
         goalList.add(newGoal);
         saveUserData();
     }
 
+    /**
+     * Remove a goal from the list
+     * @param index
+     * Goal will be removed at index
+     */
     public void deleteGoal(Integer index) {
         goalList.remove(goalList.get(index));
         saveUserData();
     }
 
+    /**
+     * Update goal progress by giving new data
+     * @param progress
+     * The new addition to the goal's progress in Double format
+     * @param index
+     * Index shows which goal needs to be updated
+     */
     public void updateGoal(Double progress, Integer index) {
         goalList.get(index).calculateProgress(progress);
     }
