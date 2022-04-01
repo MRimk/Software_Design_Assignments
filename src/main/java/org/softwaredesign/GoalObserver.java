@@ -13,7 +13,10 @@ public class GoalObserver implements Observer{
     }
 
     @Override
-    public void update(Metric metric, Activity activity){
+    public void update(Object data, Object parser) {
+        Activity activity = (Activity)data;
+        Metric metric = (Metric) parser;
+
         Integer numGoals = GUI.getUser().getNumGoals();
         List<Goal> goalList = GUI.getUser().getGoalList();
 

@@ -49,7 +49,7 @@ public class Activity {
     }
 
     private void notifyObserver(Metric metric){
-        GUI.getGoalObserver().update(metric, this);
+        GUI.getGoalObserver().update(this, metric);
     }
 
     public GPX getGpx(){return gpx;}
