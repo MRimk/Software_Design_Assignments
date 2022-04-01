@@ -33,6 +33,14 @@ public final class SportToMetricsHelper {
                     Pace.getInstance(),
                     StrokeLength.getInstance(),
                     CaloriesBurnt.getInstance()}));
+
+    /**
+     * A converter function that given a sport returns a list of relevant metrics for such sport.
+     * @param sport
+     * Sport enumerator object that indicates the sport type
+     * @return
+     * List of Metric objects that can be used for calculating specific data
+     */
     public static Metric[] getSportMetrics(Sport sport){
         return metricsOfSport.get(sport);
     }
