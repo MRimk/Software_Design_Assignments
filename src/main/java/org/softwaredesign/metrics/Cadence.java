@@ -28,9 +28,9 @@ public class Cadence extends Metric{
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
+        ArrayList<Double> cadencePoints = new ArrayList<>();
+        List<WayPoint> waypoints = getWaypoints(gpx);
         try {
-            ArrayList<Double> cadencePoints = new ArrayList<>();
-            List<WayPoint> waypoints = getWaypoints(gpx);
             for (WayPoint point : waypoints) {
                 point.getExtensions().ifPresent(extensions ->
                         // adjustment made because of weird Garmin protocol

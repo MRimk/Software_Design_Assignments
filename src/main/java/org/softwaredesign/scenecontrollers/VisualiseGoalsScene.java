@@ -111,15 +111,55 @@ public class VisualiseGoalsScene {
     }
 
     @FXML
-    Label sport0, sport1, sport2, sport3, sport4;
+    Label sport0;
     @FXML
-    Label metric0, metric1, metric2, metric3, metric4;
+    Label sport1;
     @FXML
-    Label tracker0, tracker1, tracker2, tracker3, tracker4;
+    Label sport2;
     @FXML
-    ProgressBar progress0, progress1, progress2, progress3, progress4;
+    Label sport3;
     @FXML
-    Button delete0, delete1, delete2, delete3, delete4;
+    Label sport4;
+    @FXML
+    Label metric0;
+    @FXML
+    Label metric1;
+    @FXML
+    Label metric2;
+    @FXML
+    Label metric3;
+    @FXML
+    Label metric4;
+    @FXML
+    Label tracker0;
+    @FXML
+    Label tracker1;
+    @FXML
+    Label tracker2;
+    @FXML
+    Label tracker3;
+    @FXML
+    Label tracker4;
+    @FXML
+    ProgressBar progress0;
+    @FXML
+    ProgressBar progress1;
+    @FXML
+    ProgressBar progress2;
+    @FXML
+    ProgressBar progress3;
+    @FXML
+    ProgressBar progress4;
+    @FXML
+    Button delete0;
+    @FXML
+    Button delete1;
+    @FXML
+    Button delete2;
+    @FXML
+    Button delete3;
+    @FXML
+    Button delete4;
     @FXML
     Label maxGoalError;
 }

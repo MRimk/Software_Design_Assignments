@@ -39,15 +39,14 @@ public class Elevation extends Metric{
                     previousOptionalElevation = optionalElevation;
                 }
                 else {
-                    elevationPoints = new ArrayList<>();
                     throw new NoSuchFieldException();
                 }
             }
+            return elevationPoints;
         }
         catch (NoSuchFieldException exception){
-            System.err.println("Elevation data corrupted");
+            return new ArrayList<>();
         }
-        return elevationPoints;
     }
     @Override
     public Double calculateMetricTotal(GPX gpx) {

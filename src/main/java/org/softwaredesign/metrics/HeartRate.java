@@ -38,11 +38,11 @@ public class HeartRate extends Metric{
                         }
                 );
             }
+            return hrPoints;
         }
         catch (DOMException exception){
-            System.err.println("HR not found in gpx file");
+            return new ArrayList<>();
         }
-        return hrPoints;
     }
     @Override
     public Double calculateMetricTotal(GPX gpx) {
