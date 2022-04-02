@@ -46,7 +46,6 @@ public class VisualiseActivityScene {
         JFrame frame = new JFrame("Mapped Activity");
         frame.getContentPane().add(mapViewer);
         frame.setSize(800, 600);
-        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.setVisible(true);
 
         TileFactoryInfo info = new OSMTileFactoryInfo();

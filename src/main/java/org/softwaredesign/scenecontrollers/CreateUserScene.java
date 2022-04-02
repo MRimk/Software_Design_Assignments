@@ -6,6 +6,7 @@ import javafx.scene.control.TextField;
 import org.softwaredesign.GUI;
 import org.softwaredesign.helpers.StringToGenderHelper;
 import org.softwaredesign.User;
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -31,11 +32,6 @@ public class CreateUserScene {
     @FXML
     private Label generalError;
 
-    /**
-     * Initialises the new user from the input data
-     * @throws IOException
-     * If the main menu fxml file is not found, IOException is thrown
-     */
     public void initUser() throws IOException {
         if (checkDataValidity()) {
             GUI.setUserFromScene(new User(
@@ -51,11 +47,6 @@ public class CreateUserScene {
         }
     }
 
-    /**
-     * Checks if the user input data is reasonable
-     * @return
-     * True = data is valid
-     */
     private boolean checkDataValidity() {
         boolean valid = true;
 

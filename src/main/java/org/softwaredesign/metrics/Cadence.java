@@ -28,20 +28,20 @@ public class Cadence extends Metric{
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
-        ArrayList<Double> cadencePoints = new ArrayList<>();
-        List<WayPoint> waypoints = getWaypoints(gpx);
         try {
+            ArrayList<Double> cadencePoints = new ArrayList<>();
+            List<WayPoint> waypoints = getWaypoints(gpx);
             for (WayPoint point : waypoints) {
                 point.getExtensions().ifPresent(extensions ->
                         // adjustment made because of weird Garmin protocol
                         cadencePoints.add(Double.parseDouble(extensions.getElementsByTagName("ns3:cad").item(0).getTextContent()) + 88)
                 );
             }
+            return cadencePoints;
         }
-        catch (DOMException exception){
-            System.err.println("Cadence not found in gpx file");
+        catch (DOMException ignored) {
+            return new ArrayList<>();
         }
-        return cadencePoints;
     }
     @Override
     public Double calculateMetricTotal(GPX gpx) {

@@ -22,6 +22,7 @@ public class Activity {
         gpx = GPX.read(gpxPath);
     }
 
+
     /**
      * Shows all the relevant to the activity metric strings in one block of text
      * @return

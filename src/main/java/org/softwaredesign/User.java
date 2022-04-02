@@ -28,14 +28,12 @@ public class User {
      */
     public void saveUserData() {
         Gson gson = new Gson();
-        try {
-            FileWriter writer = new FileWriter("src/main/resources/user_data", false);
+        try (FileWriter writer = new FileWriter("src/main/resources/user_data", false)) {
             String data = gson.toJson(this);
             byte[] encodedData = Base64.getEncoder().encode(data.getBytes());
             writer.write(new String(encodedData));
-            writer.close();
         } catch (IOException e) {
-            System.err.println("Cant save user");
+            e.printStackTrace();
         }
     }
 
