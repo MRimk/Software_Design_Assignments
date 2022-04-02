@@ -29,9 +29,7 @@ public class Goal {
         completed = progress >= target;
     }
     public Double getProgress() { return progress; }
-    public Boolean isCompleted(){
-        return completed;
-    }
+    public Boolean isCompleted(){ return completed; }
     public String getMetric() { return metric; }
     public String getSport() { return sport; }
     public Double getTarget() { return target; }

@@ -46,7 +46,7 @@ public class Activity {
      * @return
      * List of GeoPosition objects which are the pairs of latitude and longitude
      */
-    public List<GeoPosition> getGeoPositions(){
+    public List<GeoPosition> getGeoPositions() {
         List<WayPoint> waypoints = SportToMetricsHelper.getSportMetrics(sport)[0].getWaypoints(gpx);
         List<GeoPosition> coords = new ArrayList<>();
         GeoPosition geoPosition;
