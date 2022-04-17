@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.softwaredesign.scenecontrollers.VisualiseActivityScene">
+      <Label fx:id="output" alignment="CENTER" contentDisplay="CENTER" layoutX="195.0" layoutY="145.0" prefHeight="310.0" prefWidth="410.0" textAlignment="CENTER">
+         <font>
+            <Font name="Segoe UI Black" size="24.0" />
+         </font></Label>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="25.0" prefWidth="48.0" text="BACK" />
+</AnchorPane>

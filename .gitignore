@@ -2,3 +2,5 @@
 .gradle/*
 build/*
 .project
+jpx
+/src/main/resources/user_data
