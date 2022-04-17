@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="499.0" prefWidth="739.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.softwaredesign.scenecontrollers.VisualiseActivityScene">
+      <Label fx:id="output" alignment="CENTER" contentDisplay="CENTER" layoutX="165.0" layoutY="72.0" prefHeight="356.0" prefWidth="410.0" textAlignment="CENTER">
+         <font>
+            <Font name="Segoe UI Black" size="24.0" />
+         </font></Label>
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#backToMainMenu" prefHeight="25.0" prefWidth="103.0" text="BACK" />
+   <Button layoutX="165.0" layoutY="439.0" mnemonicParsing="false" onAction="#visualiseCharts" prefHeight="39.0" prefWidth="157.0" text="Visualise Charts">
+      <font>
+         <Font size="18.0" />
+      </font></Button>
+   <Button layoutX="418.0" layoutY="439.0" mnemonicParsing="false" onAction="#viewMap" prefHeight="39.0" prefWidth="157.0" text="Map">
+      <font>
+         <Font size="18.0" />
+      </font>
+   </Button>
+</AnchorPane>

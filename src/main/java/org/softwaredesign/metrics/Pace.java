@@ -2,10 +2,18 @@ package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Pace extends Metric{
-    public Pace(){
+    static Metric paceInstance = null;
+
+    private Pace(){
         //do nothing because object is purely a calculator
+    }
+    public static Metric getInstance() {
+        if(paceInstance == null)
+            paceInstance = new Pace();
+        return paceInstance;
     }
 
     @Override
@@ -16,13 +24,13 @@ public class Pace extends Metric{
         int seconds = (int)allSeconds;
         String returnText = "Average Pace: " + minutes + ":";
         String secondsString = (seconds < 10) ? "0" + seconds : "" + seconds;
-        return returnText + secondsString + " min/km";
+        return returnText + secondsString + " " + getMetricUnits();
     }
 
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
-        Speed speedCalculator = new Speed();
-        ArrayList<Double> speedPoints = speedCalculator.calculateDataPoints(gpx);
+        Metric speedCalculator = Speed.getInstance();
+        List<Double> speedPoints = speedCalculator.calculateDataPoints(gpx);
         ArrayList<Double> pacePoints = new ArrayList<>();
         for(Double point : speedPoints){
             pacePoints.add(1 / point);
@@ -36,8 +44,25 @@ public class Pace extends Metric{
 
     @Override
     public Double calculateMetricTotal(GPX gpx) {
-        Time timeCalculator = new Time();
-        Distance distanceCalculator = new Distance();
+        Metric timeCalculator = Time.getInstance();
+        Metric distanceCalculator = Distance.getInstance();
         return timeToMinutes(timeCalculator.calculateMetricTotal(gpx))/distanceCalculator.calculateMetricTotal(gpx);
+    }
+
+    @Override
+    public boolean isChartable(){
+        return false;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return false;
+    }
+    @Override
+    public String getMetricName(){
+        return "Pace";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "min/km";
     }
 }

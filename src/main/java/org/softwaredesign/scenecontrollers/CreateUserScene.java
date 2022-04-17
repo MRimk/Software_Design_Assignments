@@ -1,16 +1,13 @@
 package org.softwaredesign.scenecontrollers;
 
-import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.softwaredesign.GUI;
 import org.softwaredesign.helpers.StringToGenderHelper;
 import org.softwaredesign.User;
-
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class CreateUserScene {
     @FXML
@@ -34,22 +31,31 @@ public class CreateUserScene {
     @FXML
     private Label generalError;
 
+    /**
+     * Initialises the new user from the input data
+     * @throws IOException
+     * If the main menu fxml file is not found, IOException is thrown
+     */
     public void initUser() throws IOException {
-        Gson gson = new Gson();
-
         if (checkDataValidity()) {
             GUI.setUserFromScene(new User(
                     name.getText(),
                     Integer.valueOf(age.getText()),
                     Double.valueOf(weight.getText()),
                     Integer.valueOf(height.getText()),
-                    StringToGenderHelper.getGender(gender.getText())));
+                    StringToGenderHelper.getGender(gender.getText()),
+                    new ArrayList<>()));
 
-            saveUserData(gson.toJson(GUI.getUser()));
-            GUI.switchScene("MainMenu.fxml");
+            GUI.getUser().saveUserData();
+            GUI.switchScene("scenes/MainMenu.fxml");
         }
     }
 
+    /**
+     * Checks if the user input data is reasonable
+     * @return
+     * True = data is valid
+     */
     private boolean checkDataValidity() {
         boolean valid = true;
 
@@ -106,24 +112,5 @@ public class CreateUserScene {
         }
 
         return valid;
-    }
-
-    private static void saveUserData(String compiledJSON) {
-        try {
-            File myObj = new File("src/main/resources/user_data");
-            if (!myObj.createNewFile()) {
-                System.out.println("File already exist");
-            }
-        }
-        catch (IOException e) {
-            System.out.println("Could not create file 'user_data'");
-        }
-
-        try (FileWriter writer = new FileWriter("src/main/resources/user_data")) {
-            writer.write(compiledJSON);
-        }
-        catch (IOException e) {
-            System.out.println("Could not write to file 'user_data'");
-        }
     }
 }

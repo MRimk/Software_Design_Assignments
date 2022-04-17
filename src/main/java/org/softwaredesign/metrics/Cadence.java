@@ -2,34 +2,51 @@ package org.softwaredesign.metrics;
 
 import io.jenetics.jpx.GPX;
 import io.jenetics.jpx.WayPoint;
+import org.w3c.dom.DOMException;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Cadence extends Metric{
-    public Cadence(){
+    static Metric cadenceInstance = null;
+
+
+    private Cadence(){
         //do nothing because object is purely a calculator
+    }
+    public static Metric getInstance() {
+        if(cadenceInstance == null)
+            cadenceInstance = new Cadence();
+        return cadenceInstance;
     }
 
     @Override
     public String display(GPX gpx){
-        return "Average Cadence: " +  calculateMetricTotal(gpx).intValue() + " spm";
+        int value = calculateMetricTotal(gpx).intValue();
+        if(value == -1.0) return "Cadence N/A";
+        return "Average Cadence: " +  value + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
         ArrayList<Double> cadencePoints = new ArrayList<>();
         List<WayPoint> waypoints = getWaypoints(gpx);
-        for(WayPoint point :waypoints){
-            point.getExtensions().ifPresent( extensions ->
-                    // adjustment made because of weird Garmin protocol
-                    cadencePoints.add(Double.parseDouble(extensions.getElementsByTagName("ns3:cad").item(0).getTextContent()) + 88)
-            );
+        try {
+            for (WayPoint point : waypoints) {
+                point.getExtensions().ifPresent(extensions ->
+                        // adjustment made because of weird Garmin protocol
+                        cadencePoints.add(Double.parseDouble(extensions.getElementsByTagName("ns3:cad").item(0).getTextContent()) + 88)
+                );
+            }
+            return cadencePoints;
         }
-        return cadencePoints;
+        catch (DOMException ignored) {
+            return new ArrayList<>();
+        }
     }
     @Override
     public Double calculateMetricTotal(GPX gpx) {
         ArrayList<Double> allCadencePoints = calculateDataPoints(gpx);
-
+        if(allCadencePoints.isEmpty()) return -1.0;
         double sumOfPoints = 0.0;
         int counter = 1;
         for(double point : allCadencePoints){
@@ -37,5 +54,22 @@ public class Cadence extends Metric{
             sumOfPoints += point;
         }
         return sumOfPoints / counter;
+    }
+
+    @Override
+    public boolean isChartable(){
+        return true;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return false;
+    }
+    @Override
+    public String getMetricName(){
+        return "Cadence";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "spm";
     }
 }

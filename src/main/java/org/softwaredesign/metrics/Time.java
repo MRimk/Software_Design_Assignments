@@ -9,9 +9,19 @@ import java.util.Optional;
 
 
 public class Time extends Metric {
-    public Time(){
+    static Metric timeInstance = null;
+
+    private Time(){
         //do nothing because object is purely a calculator
     }
+
+
+    public static Metric getInstance() {
+        if(timeInstance == null)
+            timeInstance = new Time();
+        return timeInstance;
+    }
+
     @Override
     public String display(GPX gpx){
         String time = "Elapsed Time: ";
@@ -44,5 +54,21 @@ public class Time extends Metric {
     public Double calculateMetricTotal(GPX gpx) {
         ArrayList<Double> timePoints = calculateDataPoints(gpx);
         return timePoints.get(timePoints.size() - 1) - timePoints.get(0);
+    }
+    @Override
+    public boolean isChartable(){
+        return false;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return true;
+    }
+    @Override
+    public String getMetricName(){
+        return "Time";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "h";
     }
 }

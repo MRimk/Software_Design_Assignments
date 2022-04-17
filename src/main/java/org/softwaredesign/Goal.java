@@ -1,28 +1,36 @@
 package org.softwaredesign;
 
-import org.softwaredesign.enumerators.Sport;
-import org.softwaredesign.metrics.Metric;
-
 public class Goal {
-    private Metric type;
+    private final String metric;
+    private final String sport;
+    private final Double target;
     private Double progress;
-    private Double target;
-    private Sport sport;
     private Boolean completed;
 
-    public Goal(Sport sport, Double target, Metric type){
+    public Goal(String sport, Double target, String type){
         //constructor for user-created goal
+        this.sport = sport;
+        this.metric = type;
+        this.target = target;
+        this.progress = 0.0;
+        this.completed = false;
     }
-    public Goal(Sport sport, Double target, Double progress, Metric type){
+    public Goal(String sport, Double target, Double progress, String type, Boolean completed){
         //constructor for goal read from JSON
+        this.sport = sport;
+        this.metric = type;
+        this.target = target;
+        this.progress = progress;
+        this.completed = completed;
     }
     public void calculateProgress(Double newData){
         //update progress with new data
+        progress += newData;
+        completed = progress >= target;
     }
-    public Double getProgress(){
-        return progress;
-    }
-    public Boolean isCompleted(){
-        return completed;
-    }
+    public Double getProgress() { return progress; }
+    public Boolean isCompleted(){ return completed; }
+    public String getMetric() { return metric; }
+    public String getSport() { return sport; }
+    public Double getTarget() { return target; }
 }

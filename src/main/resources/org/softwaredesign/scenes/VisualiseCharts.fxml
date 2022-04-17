@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="508.0" prefWidth="693.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.softwaredesign.scenecontrollers.VisualiseChartsScene">
+   <children>
+      <AreaChart fx:id="chartDisplay" layoutX="97.0" layoutY="94.0">
+        <xAxis>
+          <NumberAxis side="BOTTOM" fx:id="xAx" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="yAx" side="LEFT" />
+        </yAxis>
+      </AreaChart>
+      <ChoiceBox fx:id="chartChoice" layoutX="272.0" layoutY="14.0" prefWidth="150.0" />
+   </children>
+</AnchorPane>

@@ -6,13 +6,20 @@ import org.softwaredesign.GUI;
 import java.util.ArrayList;
 
 public class CaloriesBurnt extends Metric{
-    public CaloriesBurnt(){
+    static Metric caloriesInstance = null;
+
+    private CaloriesBurnt(){
         //do nothing because object is purely a calculator
+    }
+    public static Metric getInstance() {
+        if(caloriesInstance == null)
+            caloriesInstance = new CaloriesBurnt();
+        return caloriesInstance;
     }
 
     @Override
     public String display(GPX gpx){
-        return "Calories Burnt: " +  calculateMetricTotal(gpx).intValue() + " Cal";
+        return "Calories Burnt: " +  calculateMetricTotal(gpx).intValue() + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -22,10 +29,27 @@ public class CaloriesBurnt extends Metric{
     }
     @Override
     public Double calculateMetricTotal(GPX gpx) {
-        Time timeCalculator = new Time();
+        Metric timeCalculator = Time.getInstance();
         double totalTimeInMinutes = timeCalculator.calculateMetricTotal(gpx) * 60;
         double met = 8;                       //data taken from https://metscalculator.com/
         double userWeight = GUI.getUser().getWeight();
         return totalTimeInMinutes * met * 3.5 * userWeight / 200;
+    }
+
+    @Override
+    public boolean isChartable(){
+        return false;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return true;
+    }
+    @Override
+    public String getMetricName(){
+        return "Calories Burnt";
+    }
+    @Override
+    public String getMetricUnits(){
+        return " Cal";
     }
 }

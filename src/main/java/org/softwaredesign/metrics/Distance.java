@@ -7,13 +7,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Distance extends Metric{
-    public Distance(){
+    static Metric distanceInstance = null;
+
+    private Distance(){
         //do nothing because object is purely a calculator
+    }
+    public static Metric getInstance() {
+        if(distanceInstance == null)
+            distanceInstance = new Distance();
+        return distanceInstance;
     }
 
     @Override
     public String display(GPX gpx){
-        return "Total Distance: " + BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " km";
+        return "Total Distance: " + BigDecimal.valueOf(calculateMetricTotal(gpx)).setScale(2, RoundingMode.HALF_DOWN) + " " + getMetricUnits();
     }
     @Override
     public ArrayList<Double> calculateDataPoints(GPX gpx) {
@@ -33,5 +40,22 @@ public class Distance extends Metric{
             totalDistance += point;
         }
         return totalDistance;
+    }
+
+    @Override
+    public boolean isChartable(){
+        return false;
+    }
+    @Override
+    public boolean isUsedInGoals(){
+        return true;
+    }
+    @Override
+    public String getMetricName(){
+        return "Distance";
+    }
+    @Override
+    public String getMetricUnits(){
+        return "km";
     }
 }

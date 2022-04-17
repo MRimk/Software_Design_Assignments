@@ -83,6 +83,6 @@
          </font>
       </Label>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="359.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="@imgs/BEAM-logos_black.png" />
+            <Image url="@../imgs/BEAM-logos_black.png" />
       </ImageView>
 </AnchorPane>
